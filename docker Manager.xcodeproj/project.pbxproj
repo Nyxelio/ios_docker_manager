@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		8BFA4A671E7AC55900A3B311 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA4A661E7AC55900A3B311 /* AppDelegate.swift */; };
-		8BFA4A691E7AC55900A3B311 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA4A681E7AC55900A3B311 /* ViewController.swift */; };
 		8BFA4A6C1E7AC55900A3B311 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFA4A6A1E7AC55900A3B311 /* Main.storyboard */; };
 		8BFA4A6F1E7AC55900A3B311 /* docker_Manager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA4A6D1E7AC55900A3B311 /* docker_Manager.xcdatamodeld */; };
 		8BFA4A711E7AC55900A3B311 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BFA4A701E7AC55900A3B311 /* Assets.xcassets */; };
 		8BFA4A741E7AC55900A3B311 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFA4A721E7AC55900A3B311 /* LaunchScreen.storyboard */; };
 		8BFA4A7F1E7AC55A00A3B311 /* docker_ManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA4A7E1E7AC55A00A3B311 /* docker_ManagerTests.swift */; };
+		8BFA4A8A1E7AED6F00A3B311 /* DispatcherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA4A891E7AED6F00A3B311 /* DispatcherController.swift */; };
+		8BFA4A8E1E7AF55B00A3B311 /* DashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA4A8D1E7AF55B00A3B311 /* DashboardTableViewCell.swift */; };
+		8BFA4A901E7AFB0600A3B311 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA4A8F1E7AFB0600A3B311 /* DashboardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +31,6 @@
 /* Begin PBXFileReference section */
 		8BFA4A631E7AC55900A3B311 /* docker Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "docker Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BFA4A661E7AC55900A3B311 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8BFA4A681E7AC55900A3B311 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8BFA4A6B1E7AC55900A3B311 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8BFA4A6E1E7AC55900A3B311 /* docker_Manager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = docker_Manager.xcdatamodel; sourceTree = "<group>"; };
 		8BFA4A701E7AC55900A3B311 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +39,9 @@
 		8BFA4A7A1E7AC55A00A3B311 /* docker ManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "docker ManagerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BFA4A7E1E7AC55A00A3B311 /* docker_ManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = docker_ManagerTests.swift; sourceTree = "<group>"; };
 		8BFA4A801E7AC55A00A3B311 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BFA4A891E7AED6F00A3B311 /* DispatcherController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatcherController.swift; sourceTree = "<group>"; };
+		8BFA4A8D1E7AF55B00A3B311 /* DashboardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardTableViewCell.swift; sourceTree = "<group>"; };
+		8BFA4A8F1E7AFB0600A3B311 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,13 +83,15 @@
 		8BFA4A651E7AC55900A3B311 /* docker Manager */ = {
 			isa = PBXGroup;
 			children = (
+				8BFA4A8D1E7AF55B00A3B311 /* DashboardTableViewCell.swift */,
 				8BFA4A661E7AC55900A3B311 /* AppDelegate.swift */,
-				8BFA4A681E7AC55900A3B311 /* ViewController.swift */,
 				8BFA4A6A1E7AC55900A3B311 /* Main.storyboard */,
 				8BFA4A701E7AC55900A3B311 /* Assets.xcassets */,
 				8BFA4A721E7AC55900A3B311 /* LaunchScreen.storyboard */,
 				8BFA4A751E7AC55900A3B311 /* Info.plist */,
 				8BFA4A6D1E7AC55900A3B311 /* docker_Manager.xcdatamodeld */,
+				8BFA4A891E7AED6F00A3B311 /* DispatcherController.swift */,
+				8BFA4A8F1E7AFB0600A3B311 /* DashboardViewController.swift */,
 			);
 			path = "docker Manager";
 			sourceTree = "<group>";
@@ -202,8 +208,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BFA4A691E7AC55900A3B311 /* ViewController.swift in Sources */,
+				8BFA4A8E1E7AF55B00A3B311 /* DashboardTableViewCell.swift in Sources */,
+				8BFA4A8A1E7AED6F00A3B311 /* DispatcherController.swift in Sources */,
 				8BFA4A671E7AC55900A3B311 /* AppDelegate.swift in Sources */,
+				8BFA4A901E7AFB0600A3B311 /* DashboardViewController.swift in Sources */,
 				8BFA4A6F1E7AC55900A3B311 /* docker_Manager.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,6 +418,7 @@
 				8BFA4A851E7AC55A00A3B311 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8BFA4A861E7AC55A00A3B311 /* Build configuration list for PBXNativeTarget "docker ManagerTests" */ = {
 			isa = XCConfigurationList;
@@ -418,6 +427,7 @@
 				8BFA4A881E7AC55A00A3B311 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
