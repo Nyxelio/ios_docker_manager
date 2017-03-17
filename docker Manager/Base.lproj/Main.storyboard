@@ -1,26 +1,244 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Cf0-d0-cl2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Item 1-->
+        <scene sceneID="qYU-mG-8MN">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="kRU-a6-ItP" customClass="DashboardViewController" customModule="docker_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="R0s-Ey-feb"/>
+                        <viewControllerLayoutGuide type="bottom" id="rde-Bl-lsa"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="4K5-RM-Vky">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="center" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="93c-hJ-Vjc">
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MVC-1j-EJQ">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeV-1m-ebU">
+                                                <accessibility key="accessibilityConfiguration" identifier="lblCountImages"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="Images" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybe-yT-Awe">
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="ybe-yT-Awe" firstAttribute="leading" secondItem="DeV-1m-ebU" secondAttribute="trailing" id="1cb-fU-lfo"/>
+                                            <constraint firstItem="ybe-yT-Awe" firstAttribute="width" secondItem="DeV-1m-ebU" secondAttribute="width" id="804-bF-tAv"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jwy-lh-v5E">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxo-8v-L4t">
+                                                <accessibility key="accessibilityConfiguration" identifier="lblCountContainers"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="Containers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2U7-Fa-SKB" userLabel="Containers">
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="2U7-Fa-SKB" firstAttribute="leading" secondItem="vxo-8v-L4t" secondAttribute="trailing" id="0PL-Ie-vml"/>
+                                            <constraint firstItem="2U7-Fa-SKB" firstAttribute="width" secondItem="vxo-8v-L4t" secondAttribute="width" id="gFV-Pu-v4E"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rlA-t8-c54">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="may-Ed-chd">
+                                                <accessibility key="accessibilityConfiguration" identifier="lblCountVolumes"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="Volumes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRb-mJ-V9k" userLabel="volume">
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="MRb-mJ-V9k" firstAttribute="leading" secondItem="may-Ed-chd" secondAttribute="trailing" id="oHo-y3-zmJ"/>
+                                            <constraint firstItem="MRb-mJ-V9k" firstAttribute="width" secondItem="may-Ed-chd" secondAttribute="width" id="yLh-Ik-105"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WOm-XE-pvJ">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G2m-Fx-9LU">
+                                                <accessibility key="accessibilityConfiguration" identifier="lblCountNetwork"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="Réseaux" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fcu-ll-fRu" userLabel="networks">
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Fcu-ll-fRu" firstAttribute="width" secondItem="G2m-Fx-9LU" secondAttribute="width" id="7dR-uD-ftM"/>
+                                            <constraint firstItem="Fcu-ll-fRu" firstAttribute="leading" secondItem="G2m-Fx-9LU" secondAttribute="trailing" id="BjV-2T-xnB"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="MRb-mJ-V9k" secondAttribute="trailing" id="ToL-0Z-U4U"/>
+                                    <constraint firstAttribute="trailing" secondItem="ybe-yT-Awe" secondAttribute="trailing" id="Yli-td-pDM"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fcu-ll-fRu" secondAttribute="trailing" id="wMg-fb-M4z"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rde-Bl-lsa" firstAttribute="top" secondItem="93c-hJ-Vjc" secondAttribute="bottom" constant="-49" id="1oT-at-Uw2"/>
+                            <constraint firstItem="Jwy-lh-v5E" firstAttribute="width" secondItem="4K5-RM-Vky" secondAttribute="width" id="2gI-th-byP"/>
+                            <constraint firstItem="93c-hJ-Vjc" firstAttribute="centerY" secondItem="4K5-RM-Vky" secondAttribute="centerY" id="dkF-G4-0AL"/>
+                            <constraint firstItem="93c-hJ-Vjc" firstAttribute="top" secondItem="4K5-RM-Vky" secondAttribute="top" id="pP5-F9-ovm"/>
+                            <constraint firstItem="93c-hJ-Vjc" firstAttribute="leading" secondItem="4K5-RM-Vky" secondAttribute="leading" id="uCt-yn-1Yl"/>
+                        </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="ahY-Uv-sMF"/>
+                    <connections>
+                        <outlet property="lblCountContainers" destination="vxo-8v-L4t" id="Kzy-oQ-YoP"/>
+                        <outlet property="lblCountImages" destination="DeV-1m-ebU" id="bGv-XK-Rae"/>
+                        <outlet property="lblCountNetworks" destination="G2m-Fx-9LU" id="IBu-4r-edo"/>
+                        <outlet property="lblCountVolumes" destination="may-Ed-chd" id="SCQ-mG-3VJ"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IzB-OJ-7Rm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="3337" y="-412"/>
+        </scene>
+        <!--Dashboard-->
+        <scene sceneID="tYe-ah-rM1">
+            <objects>
+                <tabBarController title="Dashboard" id="Cf0-d0-cl2" customClass="DispatcherController" customModule="docker_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="uoN-gh-s6B">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="kRU-a6-ItP" kind="relationship" relationship="viewControllers" id="S9D-ef-Etg"/>
+                        <segue destination="ydH-lP-K8M" kind="relationship" relationship="viewControllers" id="L7l-eT-ynj"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="klX-Km-0PC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1932" y="-440"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="fcq-Ny-mhc">
+            <objects>
+                <tableViewController id="ydH-lP-K8M" customClass="ContainerTableViewController" customModule="docker_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="8hj-gO-4oL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="containerCell" id="mg7-jT-BMw" customClass="ContainerTableViewCell" customModule="docker_Manager" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mg7-jT-BMw" id="qtf-v8-QVh">
+                                    <frame key="frameInset" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Redis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MeQ-1U-bdj">
+                                            <accessibility key="accessibilityConfiguration" label="lblContainerName"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zg9-Ax-Yyf">
+                                            <accessibility key="accessibilityConfiguration" label="lblContainerStatus"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="leadingMargin" secondItem="Zg9-Ax-Yyf" secondAttribute="leading" id="0BP-Em-iad"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="MeQ-1U-bdj" secondAttribute="trailing" constant="206" id="Yly-SD-YYd"/>
+                                        <constraint firstItem="Zg9-Ax-Yyf" firstAttribute="centerY" secondItem="qtf-v8-QVh" secondAttribute="centerY" id="aBe-Sf-tse"/>
+                                        <constraint firstItem="MeQ-1U-bdj" firstAttribute="centerY" secondItem="qtf-v8-QVh" secondAttribute="centerY" id="j8m-yV-Uvl"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="containerCell"/>
+                                <connections>
+                                    <outlet property="lblContainerName" destination="MeQ-1U-bdj" id="8q3-aq-pgI"/>
+                                    <outlet property="lblContainerStatus" destination="Zg9-Ax-Yyf" id="pgR-Zn-vTC"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ydH-lP-K8M" id="eja-hG-Za5"/>
+                            <outlet property="delegate" destination="ydH-lP-K8M" id="STW-4Z-rNB"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" id="Dtn-vc-9eC"/>
+                    <connections>
+                        <outlet property="tableView" destination="8hj-gO-4oL" id="Xn2-6y-8SG"/>
+                        <segue destination="TSf-0e-jhs" kind="showDetail" id="Aae-gI-6U6"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="113-ew-isO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2886" y="333"/>
+        </scene>
+        <!--Container details-->
+        <scene sceneID="san-yL-P6f">
+            <objects>
+                <viewController storyboardIdentifier="containerDetails" title="Container details" id="TSf-0e-jhs" customClass="ContainerDetailsViewController" customModule="docker_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mK7-x7-OiI"/>
+                        <viewControllerLayoutGuide type="bottom" id="K5s-AW-5d9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NWw-5B-hLa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;container name&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ktd-aN-df2">
+                                <frame key="frameInset" minX="74" minY="20" width="140" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;container id&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycG-O0-hJI">
+                                <frame key="frameInset" minX="16" minY="20" width="112" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="lblContainerId" destination="ycG-O0-hJI" id="cbx-CY-e0b"/>
+                        <outlet property="lblContainerName" destination="Ktd-aN-df2" id="zIZ-ds-OBj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fFb-UT-RLL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2886" y="1225"/>
         </scene>
     </scenes>
 </document>
