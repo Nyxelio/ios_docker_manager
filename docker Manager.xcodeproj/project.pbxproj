@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B0586C71E7C324300B4BBD6 /* ContainerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0586C61E7C324300B4BBD6 /* ContainerClass.swift */; };
+		8B0586C91E7C367D00B4BBD6 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0586C81E7C367D00B4BBD6 /* Image.swift */; };
 		8BFA4A671E7AC55900A3B311 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA4A661E7AC55900A3B311 /* AppDelegate.swift */; };
 		8BFA4A691E7AC55900A3B311 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA4A681E7AC55900A3B311 /* ViewController.swift */; };
 		8BFA4A6C1E7AC55900A3B311 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFA4A6A1E7AC55900A3B311 /* Main.storyboard */; };
@@ -27,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8B0586C61E7C324300B4BBD6 /* ContainerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerClass.swift; sourceTree = "<group>"; };
+		8B0586C81E7C367D00B4BBD6 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		8BFA4A631E7AC55900A3B311 /* docker Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "docker Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BFA4A661E7AC55900A3B311 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BFA4A681E7AC55900A3B311 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +90,8 @@
 				8BFA4A721E7AC55900A3B311 /* LaunchScreen.storyboard */,
 				8BFA4A751E7AC55900A3B311 /* Info.plist */,
 				8BFA4A6D1E7AC55900A3B311 /* docker_Manager.xcdatamodeld */,
+				8B0586C61E7C324300B4BBD6 /* ContainerClass.swift */,
+				8B0586C81E7C367D00B4BBD6 /* Image.swift */,
 			);
 			path = "docker Manager";
 			sourceTree = "<group>";
@@ -202,9 +208,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B0586C71E7C324300B4BBD6 /* ContainerClass.swift in Sources */,
 				8BFA4A691E7AC55900A3B311 /* ViewController.swift in Sources */,
 				8BFA4A671E7AC55900A3B311 /* AppDelegate.swift in Sources */,
 				8BFA4A6F1E7AC55900A3B311 /* docker_Manager.xcdatamodeld in Sources */,
+				8B0586C91E7C367D00B4BBD6 /* Image.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +418,7 @@
 				8BFA4A851E7AC55A00A3B311 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8BFA4A861E7AC55A00A3B311 /* Build configuration list for PBXNativeTarget "docker ManagerTests" */ = {
 			isa = XCConfigurationList;
@@ -418,6 +427,7 @@
 				8BFA4A881E7AC55A00A3B311 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
