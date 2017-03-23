@@ -11,7 +11,7 @@ import UIKit
 class ContainerTableViewController: UITableViewController {
 
     //var containers:[Container] = []
-    var containers:[ContainerData] = []
+    var containers:[Container] = []
 
     //@IBOutlet var tableView: UITableView!
 
@@ -27,16 +27,24 @@ class ContainerTableViewController: UITableViewController {
         //self.tableView.register( ContainerTableViewCell.self, forCellReuseIdentifier: "containerCell")
         
         
-        let c0 = ContainerData(Id: "AZERTY", Name: "My container 0")
-        let c1 = ContainerData(Id: "AZERTY2", Name: "My container 1")
+        let c0 = Container(id: "AZERTY", names: ["My container 0"], state: "running")
+        let c1 = Container(id: "AZERTY2", names: ["My container 1"], state: "exited")
         
         containers.append(c0)
         containers.append(c1)
         
-        print(containers)
+        
         //TODO
         //get containers
         //containers
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        // Initialize Tab Bar Item
+        tabBarItem = UITabBarItem(title: "Containers", image: UIImage(named: "icon-server"), tag: 1)
+        
+        tabBarItem.badgeValue = String(containers.count)
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,9 +68,11 @@ class ContainerTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "containerCell") as! ContainerTableViewCell
  
-        
+        let container = containers[indexPath.row]
+    
         // Configure the cell...
-
+                
+        cell.update(name: container.getName(), imgState: container.getImgState())
         return cell
     }
     
@@ -111,13 +121,16 @@ class ContainerTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         print(segue.identifier)
         let index = tableView.indexPathForSelectedRow!
+        print("PREPARE FOR SEGUE")
         print(index)
+        print(segue.identifier)
         let container = containers[index.row]
         
-        if(segue.identifier == "containerDetails"){
-            var details = segue.destination as! ContainerDetailsViewController
-            details.container = container
-        }
+        //if(segue.identifier == "containerDetails"){
+        print("im a details segue")
+        let details = segue.destination as! ContainerDetailsViewController
+        details.container = container
+        //}
     }
  
 

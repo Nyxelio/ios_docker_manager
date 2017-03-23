@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Container {
     var id: String
@@ -19,7 +20,7 @@ class Container {
     var status: String
     var ports: [[String:Any]]
     
-    init(id:String, names:[String], image_name:String, image_id:String, command:String, created:Int, state:String, status:String, ports:[[String:Any]]) {
+    init(id:String, names:[String], image_name:String = "", image_id:String = "", command:String = "", created:Int = 0, state:String = "", status:String = "", ports:[[String:Any]] = []) {
         self.id = id
         self.names = names
         self.image_name = image_name
@@ -31,6 +32,31 @@ class Container {
         self.ports = ports
     }
     
+    func getImgState() -> UIImage? {
+        
+        if(state == "running"){
+            return UIImage(named: "icon-up")
+        }else
+        {
+            return UIImage(named: "icon-down")
+        }
+    }
+    
+    func getName() -> String? {
+        if names.count > 0{
+            return names[0]
+        }
+        return nil
+    }
+    
+    func getCreatedAt() -> String {
+       
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy hh:mm:ss"
+        
+        return dateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(created)))
+    }
+
     
     
 //    func getImage() -> Image {

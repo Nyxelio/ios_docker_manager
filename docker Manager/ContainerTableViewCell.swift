@@ -10,7 +10,9 @@ import UIKit
 
 class ContainerTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var lblContainerStatus: UILabel!
+    
+    @IBOutlet weak var imgContainerState: UIImageView!
+    
     @IBOutlet weak var lblContainerName: UILabel!
     
     override func awakeFromNib() {
@@ -18,6 +20,16 @@ class ContainerTableViewCell: UITableViewCell {
         // Initialization code
     }
 
+    func update(name: String?, imgState: UIImage?) {
+        if (name != nil) {
+            lblContainerName.text = name!
+        }
+        
+        if(imgState != nil){
+            imgContainerState.image = imgState!
+        }
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

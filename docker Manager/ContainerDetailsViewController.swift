@@ -8,26 +8,79 @@
 
 import UIKit
 
-class ContainerDetailsViewController: UIViewController {
+class ContainerDetailsViewController: UITableViewController {
     
-    var container:ContainerData = ContainerData(Id: "0", Name: "")
+    var container:Container = Container(id: "0", names: ["TEST"], image_name: "ubuntu:latest", command: "echo 222", created: 1367854154, state: "running" )
 
-    @IBOutlet weak var lblContainerId: UILabel!
     @IBOutlet weak var lblContainerName: UILabel!
+    
+    @IBOutlet weak var lblContainerState: UILabel!
+    
+    @IBOutlet weak var lblContainerIP: UILabel!
+    @IBOutlet weak var lblContainerCreatedAt: UILabel!
+    
+    @IBOutlet weak var lblImageName: UILabel!
+    
+    @IBOutlet weak var lblCmd: UILabel!
+    
+    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var removeButton: UIButton!
+    
+    @IBAction func play(_ sender: UIButton) {
+        
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        lblContainerId.text = container.Id;
-        lblContainerName.text = container.Name;
+        lblContainerName.text = container.getName()
+        lblContainerState.text = container.state
+        //lblContainerIP.text = container.
+        lblContainerCreatedAt.text = container.getCreatedAt()
+        lblImageName.text = container.image_name
+        lblCmd.text = container.command
         
+        
+        playButton.layer.backgroundColor = UIColor(red: 0x28/255, green: 0x60/255, blue: 0x90/255, alpha: 1).cgColor
+        
+        removeButton.layer.backgroundColor = UIColor(red: 0xC9/255, green: 0x30/255, blue: 0x2C/255, alpha: 1).cgColor
+        
+        stopButton.layer.backgroundColor = UIColor(red: 0x28/255, green: 0x60/255, blue: 0x90/255, alpha: 1).cgColor
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    /*
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        //return containers.count
+        return 1
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "containerCell") as! ContainerTableViewCell
+        
+        /*let container = containers[indexPath.row]
+        
+        // Configure the cell...
+        
+        cell.update(name: container.getName(), imgState: container.getImgState())*/
+        return cell
+    }
+    */
+
     
 
     /*

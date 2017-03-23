@@ -1,34 +1,32 @@
 //
-//  DispatcherController.swift
+//  StartViewController.swift
 //  docker Manager
 //
-//  Created by Developer on 16/03/2017.
+//  Created by Developer on 23/03/2017.
 //  Copyright © 2017 Ingesup. All rights reserved.
 //
 
 import UIKit
 
-class DispatcherController: UITabBarController {
+class StartViewController: UIViewController {
 
+    @IBOutlet weak var newAccountButton: UIButton!
+    @IBOutlet weak var demoButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         // Do any additional setup after loading the view.
-        let ip_server = ProcessInfo.processInfo.environment["IP_SERVER"]
+        demoButton.layer.cornerRadius = 9
+        demoButton.layer.borderColor = UIColor.white.cgColor
+        demoButton.layer.borderWidth = 1.5
         
-        if(ip_server != nil)
-        {
-            print(ip_server!)
-        }
-        // tabbar background
-        tabBar.barTintColor = UIColor(red: 0x9B/255, green: 0x59/255, blue: 0xB6/255, alpha: 1)
+        newAccountButton.layer.cornerRadius = 9
+        newAccountButton.layer.borderColor = UIColor.white.cgColor
+        newAccountButton.layer.borderWidth = 1.5
         
-        tabBar.tintColor = UIColor.white
-               
-        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white], for: .normal)
-        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.blue], for: .selected)
+        demoButton.tintColor = UIColor.white
+        newAccountButton.tintColor = UIColor.white
 
     }
 
