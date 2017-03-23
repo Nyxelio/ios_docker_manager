@@ -15,6 +15,7 @@
 		8B525D0E1E84059500FFDB3A /* ContainerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B525D0D1E84059500FFDB3A /* ContainerClass.swift */; };
 		8B525D101E8405A200FFDB3A /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B525D0F1E8405A200FFDB3A /* Image.swift */; };
 		8B525D121E8405AE00FFDB3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B525D111E8405AE00FFDB3A /* ViewController.swift */; };
+		8B6574CA1E8436D000F6389E /* ControllerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6574C91E8436D000F6389E /* ControllerAPI.swift */; };
 		8BFA4A671E7AC55900A3B311 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA4A661E7AC55900A3B311 /* AppDelegate.swift */; };
 		8BFA4A6C1E7AC55900A3B311 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFA4A6A1E7AC55900A3B311 /* Main.storyboard */; };
 		8BFA4A6F1E7AC55900A3B311 /* docker_Manager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA4A6D1E7AC55900A3B311 /* docker_Manager.xcdatamodeld */; };
@@ -45,6 +46,7 @@
 		8B525D0D1E84059500FFDB3A /* ContainerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerClass.swift; sourceTree = "<group>"; };
 		8B525D0F1E8405A200FFDB3A /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		8B525D111E8405AE00FFDB3A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8B6574C91E8436D000F6389E /* ControllerAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerAPI.swift; sourceTree = "<group>"; };
 		8BFA4A631E7AC55900A3B311 /* docker Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "docker Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BFA4A661E7AC55900A3B311 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BFA4A6B1E7AC55900A3B311 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				8B525D011E7C327300FFDB3A /* ContainerDetailsViewController.swift */,
 				8B525D071E82E83800FFDB3A /* TourPageViewController.swift */,
 				8B525D0B1E83D66B00FFDB3A /* StartViewController.swift */,
+				8B6574C91E8436D000F6389E /* ControllerAPI.swift */,
 			);
 			path = "docker Manager";
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B6574CA1E8436D000F6389E /* ControllerAPI.swift in Sources */,
 				8BFA4A8E1E7AF55B00A3B311 /* DashboardTableViewCell.swift in Sources */,
 				8B525D081E82E83800FFDB3A /* TourPageViewController.swift in Sources */,
 				8B525CFE1E7C16EB00FFDB3A /* ContainerTableViewController.swift in Sources */,
