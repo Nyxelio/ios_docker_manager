@@ -342,6 +342,9 @@
                                                     <state key="normal" image="icon-remove">
                                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="remove:" destination="D0I-fj-XH6" eventType="touchDown" id="v7w-qc-9sY"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="DNO-gW-AXv">
                                                     <frame key="frameInset" minX="248" minY="5" width="32" height="32"/>
@@ -361,6 +364,9 @@
                                                     <state key="normal" image="icon-stop">
                                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="stop:" destination="D0I-fj-XH6" eventType="touchDown" id="YGx-sp-eiq"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -461,7 +467,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;image&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWy-Sc-blg">
-                                                    <frame key="frameInset" minX="115" minY="11" width="68" height="21"/>
+                                                    <frame key="frameInset" minX="115" minY="11" width="234" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -485,7 +491,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;ports&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9a-BR-cRS">
-                                                    <frame key="frameInset" minX="114" minY="10" width="62" height="21"/>
+                                                    <frame key="frameInset" minX="114" minY="10" width="253" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -509,7 +515,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;cmd&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcI-eM-IZm">
-                                                    <frame key="frameInset" minX="114" minY="11" width="55" height="21"/>
+                                                    <frame key="frameInset" minX="114" minY="11" width="253" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -575,6 +581,7 @@
                         <outlet property="lblContainerName" destination="Ktd-aN-df2" id="ylH-P6-zSf"/>
                         <outlet property="lblContainerState" destination="xva-Pn-egl" id="Xpx-z9-DNc"/>
                         <outlet property="lblImageName" destination="cWy-Sc-blg" id="AwI-NC-uN1"/>
+                        <outlet property="lblPorts" destination="m9a-BR-cRS" id="ELa-Bp-qhh"/>
                         <outlet property="playButton" destination="DNO-gW-AXv" id="HJN-up-0vv"/>
                         <outlet property="removeButton" destination="pNF-GS-eTV" id="tIp-3V-1VY"/>
                         <outlet property="stopButton" destination="iHz-uO-2cM" id="BHc-bS-QL0"/>

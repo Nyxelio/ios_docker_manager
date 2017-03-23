@@ -56,6 +56,18 @@ class Container {
         
         return dateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(created)))
     }
+    
+    func getPortsAsString() -> String{
+        var strPorts = ""
+        
+        print(ports)
+        
+        /*for port in ports {
+            //strPorts += port["PublicPort"]
+        }*/
+        
+        return strPorts
+    }
 
     
     

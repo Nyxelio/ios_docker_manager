@@ -10,7 +10,7 @@ import UIKit
 
 class ContainerDetailsViewController: UITableViewController {
     
-    var container:Container = Container(id: "0", names: ["TEST"], image_name: "ubuntu:latest", command: "echo 222", created: 1367854154, state: "running" )
+    var container:Container = Container(id: "0", names: ["TEST"], image_name: "ubuntu:latest", command: "echo 222", created: 1367854154,state: "running", ports: [] )
 
     @IBOutlet weak var lblContainerName: UILabel!
     
@@ -22,6 +22,7 @@ class ContainerDetailsViewController: UITableViewController {
     @IBOutlet weak var lblImageName: UILabel!
     
     @IBOutlet weak var lblCmd: UILabel!
+    @IBOutlet weak var lblPorts: UILabel!
     
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
@@ -29,7 +30,12 @@ class ContainerDetailsViewController: UITableViewController {
     
     @IBAction func play(_ sender: UIButton) {
         
-        
+        print("play")
+    }
+    @IBAction func stop(_ sender: UIButton) {
+    }
+    
+    @IBAction func remove(_ sender: UIButton) {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +48,7 @@ class ContainerDetailsViewController: UITableViewController {
         lblContainerCreatedAt.text = container.getCreatedAt()
         lblImageName.text = container.image_name
         lblCmd.text = container.command
+        lblPorts.text = container.getPortsAsString()
         
         
         playButton.layer.backgroundColor = UIColor(red: 0x28/255, green: 0x60/255, blue: 0x90/255, alpha: 1).cgColor
@@ -49,6 +56,10 @@ class ContainerDetailsViewController: UITableViewController {
         removeButton.layer.backgroundColor = UIColor(red: 0xC9/255, green: 0x30/255, blue: 0x2C/255, alpha: 1).cgColor
         
         stopButton.layer.backgroundColor = UIColor(red: 0x28/255, green: 0x60/255, blue: 0x90/255, alpha: 1).cgColor
+        
+        let api = APIController()
+        let res = api.getContainerAll()
+        print(res)
     }
 
     override func didReceiveMemoryWarning() {

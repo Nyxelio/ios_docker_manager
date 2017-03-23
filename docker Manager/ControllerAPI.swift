@@ -51,6 +51,8 @@ class APIController {
                 let httpStatus = response as? HTTPURLResponse
                 let httpStatusCode:Int = (httpStatus?.statusCode)!
                 let json = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]]
+                
+                print(json)
                 //                let item = json["Command"] as? [String:Any]
                 //                print(json)
                 //                for item in json! {
