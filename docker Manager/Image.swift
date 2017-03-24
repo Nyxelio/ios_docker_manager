@@ -19,7 +19,7 @@ class Image {
     var sharedSize : Int
     var number_containers : Int
     
-    init(id: String, parentId: String, repoTags: [String], repoDigests: [String], created : Int, size: Int, virtualSize : Int, sharedSize : Int, number_containers : Int) {
+    init(id: String, parentId: String = "", repoTags: [String] = [], repoDigests: [String] = [], created : Int = 0, size: Int = 0, virtualSize : Int = 0, sharedSize : Int = 0, number_containers : Int = 0) {
         self.id = id
         self.parentId = parentId
         self.repoTags = repoTags
@@ -31,4 +31,18 @@ class Image {
         self.number_containers = number_containers
     }
     
+    func getTag() -> String? {
+        return repoTags[0]
+    }
+    
+    
+    func getCreatedAt() -> String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy hh:mm:ss"
+        
+        return dateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(created)))
+    }
+    
+
 }

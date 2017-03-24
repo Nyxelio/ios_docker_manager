@@ -11,16 +11,16 @@ import UIKit
 class ImageTableViewCell: UITableViewCell {
     
     
-    @IBOutlet weak var lblImageName: UILabel!
+    @IBOutlet weak var lblImageTag: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
     
-    func update(name: String?) {
-        if (name != nil) {
-            lblImageName.text = name!
+    func update(tag: String?) {
+        if (tag != nil) {
+            lblImageTag.text = tag!
         }
     }
     

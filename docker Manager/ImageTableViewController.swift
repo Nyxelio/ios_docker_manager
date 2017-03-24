@@ -14,8 +14,8 @@ class ImageTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        containers = DataStore.containers
-        tabBarItem.badgeValue = String(DataStore.containers.count)
+        images = DataStore.images
+        tabBarItem.badgeValue = String(DataStore.images.count)
         
     }
     
@@ -52,7 +52,7 @@ class ImageTableViewController: UITableViewController {
         
         // Configure the cell...
         
-        cell.update(name: image.getName())
+        cell.update(tag: image.getTag())
         return cell
     }
     

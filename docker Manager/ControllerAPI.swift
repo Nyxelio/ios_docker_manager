@@ -83,7 +83,7 @@ class APIController {
     }
     
     func resetJsonData() {
-        self.jsonData = []
+        self.jsonData = [:]
     }
     
     func resetJsonDataArray() {
