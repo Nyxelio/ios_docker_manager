@@ -26,7 +26,14 @@ class DashboardViewController: UIViewController
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        //lblCountImages.text = "10"
+        lblCountContainers.text = String(DataStore.containers.count)
+        
+        lblCountImages.text = String(DataStore.images.count)
+        
+        print("DASHBOARD")
+        //print(DataStore.containers[0])
+        print(DataStore.containers.count)
+        
     
     }
 
@@ -41,7 +48,6 @@ class DashboardViewController: UIViewController
         // Initialize Tab Bar Item
         tabBarItem = UITabBarItem(title: "Dashboard", image: UIImage(named: "icon-dashboard"), tag: 0)
         
-        //tabBarItem.badgeValue = 8
     }
 
     /*

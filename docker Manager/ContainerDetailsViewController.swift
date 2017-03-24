@@ -28,28 +28,81 @@ class ContainerDetailsViewController: UITableViewController {
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var removeButton: UIButton!
     
+    @IBOutlet weak var lblFinishedAt: UILabel!
+    
     @IBAction func play(_ sender: UIButton) {
         
         print("play")
+        
+        let res = APIController.startContainer(id: container.id)
+        
+        print(res)
+        if res {
+            print("ok")
+            
+            let api = APIController()
+            
+            container = api.getContainer(uuid: container.id)
+            
+            print("on play return")
+            print(container.state)
+            refresh()
+
+        }
     }
     @IBAction func stop(_ sender: UIButton) {
+        print("stop")
+        
+        let res = APIController.stopContainer(id: container.id)
+        
+        //TMP
+        
+        if res {
+            print("ok")
+            
+            let api = APIController()
+            
+            container = api.getContainer(uuid: container.id)
+            
+            print("on stop return")
+            print(container.state)
+            refresh()
+        }
+
+        
     }
     
     @IBAction func remove(_ sender: UIButton) {
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
+        print("remove")
+        
+        
+        let res = APIController.removeContainer(id: container.id)
+        
+        if res {
+            print("ok")
+        }
 
-        // Do any additional setup after loading the view.
+    }
+    
+    func refresh() {
         
         lblContainerName.text = container.getName()
         lblContainerState.text = container.state
-        //lblContainerIP.text = container.
+        //lblContainerIP.text = container.IP
         lblContainerCreatedAt.text = container.getCreatedAt()
         lblImageName.text = container.image_name
         lblCmd.text = container.command
         lblPorts.text = container.getPortsAsString()
+        lblFinishedAt.text = container.finishedAt
+
         
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+        refresh()
         
         playButton.layer.backgroundColor = UIColor(red: 0x28/255, green: 0x60/255, blue: 0x90/255, alpha: 1).cgColor
         
@@ -57,9 +110,6 @@ class ContainerDetailsViewController: UITableViewController {
         
         stopButton.layer.backgroundColor = UIColor(red: 0x28/255, green: 0x60/255, blue: 0x90/255, alpha: 1).cgColor
         
-        let api = APIController()
-        let res = api.getContainerAll()
-        print(res)
     }
 
     override func didReceiveMemoryWarning() {

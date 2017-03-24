@@ -16,12 +16,17 @@ class DispatcherController: UITabBarController {
 
         
         // Do any additional setup after loading the view.
-        let ip_server = ProcessInfo.processInfo.environment["IP_SERVER"]
         
-        if(ip_server != nil)
-        {
-            print(ip_server!)
-        }
+        
+        let api = APIController()
+
+        DataStore.containers = api.getContainerAll()
+        DataStore.images = api.getAllImage()
+        
+        print("DISPATCHER")
+        
+        //print(DataStore.containers)
+        
         // tabbar background
         tabBar.barTintColor = UIColor(red: 0x9B/255, green: 0x59/255, blue: 0xB6/255, alpha: 1)
         

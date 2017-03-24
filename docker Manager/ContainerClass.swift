@@ -19,8 +19,9 @@ class Container {
     var state: String
     var status: String
     var ports: [[String:Any]]
+    var finishedAt: String
     
-    init(id:String, names:[String], image_name:String = "", image_id:String = "", command:String = "", created:Int = 0, state:String = "", status:String = "", ports:[[String:Any]] = []) {
+    init(id:String, names:[String], image_name:String = "", image_id:String = "", command:String = "", created:Int = 0, state:String = "", status:String = "", ports:[[String:Any]] = [], finishedAt: String = "") {
         self.id = id
         self.names = names
         self.image_name = image_name
@@ -30,6 +31,7 @@ class Container {
         self.state = state
         self.status = status
         self.ports = ports
+        self.finishedAt = finishedAt
     }
     
     func getImgState() -> UIImage? {
