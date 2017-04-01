@@ -40,24 +40,35 @@ class ContainerTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        
+        if(section == 0){
+                return 1
+        }
+        
         return containers.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "containerCell") as! ContainerTableViewCell
- 
-        let container = containers[indexPath.row]
-    
-        // Configure the cell...
-                
-        cell.update(name: container.getName(), imgState: container.getImgState())
-        return cell
+        if indexPath.section == 0 {
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: "containerCtrlCell")
+            return cell!
+        }
+        else {
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: "containerCell") as! ContainerTableViewCell
+            
+            let container = containers[indexPath.row]
+            
+            // Configure the cell...
+            
+            cell.update(name: container.getName(), imgState: container.getImgState())
+            return cell
+        }
     }
     
     // MARK: - Navigation
@@ -67,11 +78,14 @@ class ContainerTableViewController: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
 
-        let index = tableView.indexPathForSelectedRow!
-        
-        let container = containers[index.row]
-        
-        let details = segue.destination as! ContainerDetailsViewController
-        details.container = container
-    }
+        if (tableView.indexPathForSelectedRow != nil) {
+            let index = tableView.indexPathForSelectedRow!
+            
+            let container = containers[index.row]
+            
+            let details = segue.destination as! ContainerDetailsViewController
+            details.container = container
+
+        }
+      }
 }
