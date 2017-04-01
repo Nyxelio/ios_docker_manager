@@ -19,10 +19,13 @@ class DispatcherController: UITabBarController {
         
         
         let api = APIController()
-
-        DataStore.containers = api.getContainerAll()
-        DataStore.images = api.getAllImage()
         
+        if api.isAccessible() {
+            
+            DataStore.containers = api.getContainerAll()
+            DataStore.images = api.getAllImage()
+
+        }
         
         // tabbar background
         tabBar.barTintColor = UIColor(red: 0x9B/255, green: 0x59/255, blue: 0xB6/255, alpha: 1)

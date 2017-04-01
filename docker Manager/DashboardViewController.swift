@@ -20,10 +20,17 @@ class DashboardViewController: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        lblCountContainers.text = String(DataStore.containers.count)
-        
-        lblCountImages.text = String(DataStore.images.count)
-        
+        let api = APIController()
+
+        if api.isAccessible() {
+            
+            
+            lblCountContainers.text = String(DataStore.containers.count)
+            
+            lblCountImages.text = String(DataStore.images.count)
+            
+
+        }
         
     }
 

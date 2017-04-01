@@ -14,10 +14,21 @@ class ContainerTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        containers = DataStore.containers
-        tabBarItem.badgeValue = String(DataStore.containers.count)
         
+        let api = APIController()
+        
+        if api.isAccessible() {
+            
+            containers = DataStore.containers
+            tabBarItem.badgeValue = String(DataStore.containers.count)
+            
+            
+        }else{
+            let errorPopover = UIAlertController(title: "Erreur", message: "Le serveur n'est pas accessible. Vérifiez votre saisie et votre connexion.", preferredStyle: UIAlertControllerStyle.alert)
+            errorPopover.addAction(UIAlertAction(title: "Fermer", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(errorPopover, animated: true, completion: nil)
+        }
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(ContainerTableViewController.refresh), for: UIControlEvents.valueChanged)

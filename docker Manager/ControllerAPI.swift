@@ -343,6 +343,36 @@ class APIController {
     }
 
     
+    
+    // Ping
+    func isAccessible () -> Bool {
+        
+        let semaphore = DispatchSemaphore(value: 0)
+        
+        var res = false
+        
+        let request = URLRequest(url: URL(string: "\(self.url)/_ping")!)
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            let httpStatus = response as? HTTPURLResponse
+            let statusCode = (httpStatus?.statusCode)!
+            
+            
+            if APIController().VALID_CODES.index(of: statusCode) != nil {
+                res = true
+            }
+            semaphore.signal()
+        }
+        task.resume()
+        
+        semaphore.wait()
+        
+        
+        return res
+    }
+
+    
     ////////////////////IMAGES ///////////////////////
     // Get all image
     func getAllImage () -> [Image] {
