@@ -137,6 +137,8 @@ class ContainerDetailsViewController: UITableViewController {
         
         stopButton.layer.backgroundColor = UIColor(red: 0x28/255, green: 0x60/255, blue: 0x90/255, alpha: 1).cgColor
         
+        logsButton.layer.backgroundColor = UIColor(red: 0x28/255, green: 0x60/255, blue: 0x90/255, alpha: 1).cgColor
+        
     }
 
     override func didReceiveMemoryWarning() {

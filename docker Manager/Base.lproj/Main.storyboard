@@ -464,14 +464,6 @@
                                                         <action selector="remove:" destination="D0I-fj-XH6" eventType="touchDown" id="v7w-qc-9sY"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TJF-w5-BLG">
-                                                    <frame key="frameInset" minX="117" minY="6" width="34" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Logs"/>
-                                                    <connections>
-                                                        <action selector="logs:" destination="D0I-fj-XH6" eventType="touchUpInside" id="VWu-CJ-J7J"/>
-                                                    </connections>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="iHz-uO-2cM">
                                                     <frame key="frameInset" minX="45" minY="5" width="32" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -481,6 +473,17 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="stop:" destination="D0I-fj-XH6" eventType="touchDown" id="YGx-sp-eiq"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="Erx-hF-Qh0">
+                                                    <frame key="frameInset" minX="125" minY="5" width="32" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                                    <state key="normal" image="icon-logs">
+                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="logs:" destination="D0I-fj-XH6" eventType="touchUpInside" id="Kdv-ub-jau"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -729,7 +732,7 @@
                         <outlet property="lblImageName" destination="cWy-Sc-blg" id="AwI-NC-uN1"/>
                         <outlet property="lblPorts" destination="m9a-BR-cRS" id="ELa-Bp-qhh"/>
                         <outlet property="lblVolume" destination="dPv-dG-Y5x" id="1ub-d2-hgY"/>
-                        <outlet property="logsButton" destination="TJF-w5-BLG" id="5zW-iJ-91x"/>
+                        <outlet property="logsButton" destination="Erx-hF-Qh0" id="Qaf-rI-cjm"/>
                         <outlet property="playButton" destination="DNO-gW-AXv" id="HJN-up-0vv"/>
                         <outlet property="removeButton" destination="pNF-GS-eTV" id="tIp-3V-1VY"/>
                         <outlet property="stopButton" destination="iHz-uO-2cM" id="BHc-bS-QL0"/>
@@ -737,7 +740,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tIW-Bh-JAl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3927" y="1136"/>
+            <point key="canvasLocation" x="3925.5999999999999" y="1135.6821589205399"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="dD6-AX-I4c">
@@ -1048,6 +1051,7 @@
     </scenes>
     <resources>
         <image name="icon-add" width="16" height="16"/>
+        <image name="icon-logs" width="16" height="16"/>
         <image name="icon-play" width="16" height="16"/>
         <image name="icon-remove" width="16" height="16"/>
         <image name="icon-stop" width="16" height="16"/>
