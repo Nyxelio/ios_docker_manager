@@ -12,6 +12,7 @@ class APIController {
     let url = "http://91.121.184.50:31337"
     var jsonDataArray : [[String:Any]] = []
     var jsonData: [String:Any] = [:]
+    let VALID_CODES = [200, 201, 204]
     
     func getContainerAll () -> [Container] {
         print("============= get Container all ============= ")
@@ -103,10 +104,10 @@ class APIController {
         return "http://91.121.184.50:31337"
     }
     
-    static func startContainer(id: String) -> Bool{
-        var ret = false
-        
-        let semaphore = DispatchSemaphore(value: 1)
+    static func startContainer(id: String) -> (status: Bool, response: String){
+        let semaphore = DispatchSemaphore(value: 0)
+        var status:Bool = false
+        var responseString = ""
         
         var request = URLRequest(url: URL(string: "\(getUrl())/containers/\(id)/start")!)
         request.httpMethod = "POST"
@@ -124,10 +125,18 @@ class APIController {
             print("id:")
             print(id)
             
-            let httpStatus = response as? HTTPURLResponse
-            print(httpStatus?.statusCode)
             
-            let responseString = String(data: data, encoding: .utf8)
+            let httpStatus = response as? HTTPURLResponse
+            let statusCode = (httpStatus?.statusCode)!
+            
+            print(APIController().VALID_CODES)
+            print(statusCode)
+            
+            if APIController().VALID_CODES.index(of: statusCode) != nil {
+                status = true
+            }
+            
+            responseString = String(data: data, encoding: .utf8)!
             print("responseString = \(responseString)")
             
             semaphore.signal()
@@ -136,15 +145,13 @@ class APIController {
         
         semaphore.wait()
 
-        ret = true
-
-        return ret
+        return (status, responseString)
 
     }
     static func stopContainer(id: String) -> Bool{
         var ret = false
         
-        let semaphore = DispatchSemaphore(value: 1)
+        let semaphore = DispatchSemaphore(value: 0)
         
         var request = URLRequest(url: URL(string: "\(getUrl())/containers/\(id)/stop")!)
         request.httpMethod = "POST"
@@ -183,7 +190,7 @@ class APIController {
     
     static func removeContainer(id: String) -> Bool{
         var ret = false
-        let semaphore = DispatchSemaphore(value: 1)
+        let semaphore = DispatchSemaphore(value: 0)
 
         var request = URLRequest(url: URL(string: "\(getUrl())/containers/\(id)")!)
         request.httpMethod = "DELETE"
@@ -284,8 +291,14 @@ class APIController {
             let httpStatus = response as? HTTPURLResponse
             print(httpStatus?.statusCode)
             
-            responseString = String(NSString(data: data, encoding: String.Encoding.utf8.rawValue)!)
+            print(data)
+            let formattedData = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+            
+            if formattedData != nil {
+                responseString = formattedData! as String
 
+            }
+            
             print("responseString = \(responseString)")
             
             
@@ -300,10 +313,10 @@ class APIController {
     }
     
     //Creation container
-    func createContainer (nameContainer: String, nameImage: String) -> String{
+    func createContainer (nameContainer: String, nameImage: String, cmd: String) -> String{
         var toReturn : String = ""
         let semaphore = DispatchSemaphore(value: 0)
-        let parameters = ["image": nameImage] as Dictionary<String, Any>
+        let parameters = ["image": nameImage, "cmd": cmd] as Dictionary<String, Any>
         
         let tmp_url = self.url + "/containers/create?name=\(nameContainer)"
         let session = URLSession.shared
