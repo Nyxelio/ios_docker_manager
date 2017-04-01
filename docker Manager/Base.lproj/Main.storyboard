@@ -264,7 +264,7 @@
                                     <segue destination="D0I-fj-XH6" kind="show" id="wDg-OT-1wN"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="containerCtrlCell" id="RPh-tO-U7N" customClass="ContainerTableViewCell" customModule="docker_Manager" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="containerCtrlCell" id="RPh-tO-U7N" customClass="ContainerCtrlCell" customModule="docker_Manager" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="164" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RPh-tO-U7N" id="IHJ-Gv-dWA">
@@ -272,10 +272,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="aC0-MJ-KFE">
-                                            <frame key="frameInset" minX="16" minY="3" width="32" height="32"/>
+                                            <frame key="frameInset" minX="16" minY="5" width="32" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="8"/>
-                                            <state key="normal" image="icon-play">
+                                            <state key="normal" image="icon-add">
                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
@@ -285,6 +285,9 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <accessibility key="accessibilityConfiguration" identifier="containerCell"/>
+                                <connections>
+                                    <outlet property="addContainerButton" destination="aC0-MJ-KFE" id="Yiv-s6-ihN"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1029,6 +1032,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon-add" width="16" height="16"/>
         <image name="icon-play" width="16" height="16"/>
         <image name="icon-remove" width="16" height="16"/>
         <image name="icon-stop" width="16" height="16"/>

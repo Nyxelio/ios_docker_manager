@@ -21,6 +21,8 @@ class ContainerTableViewController: UITableViewController {
         containers = DataStore.containers
         tabBarItem.badgeValue = String(DataStore.containers.count)
         
+        
+        
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -56,8 +58,8 @@ class ContainerTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = self.tableView.dequeueReusableCell(withIdentifier: "containerCtrlCell")
-            return cell!
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: "containerCtrlCell") as! ContainerCtrlCell
+            return cell
         }
         else {
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "containerCell") as! ContainerTableViewCell
