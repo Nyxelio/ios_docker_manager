@@ -50,10 +50,10 @@ class ContainerDetailsViewController: UITableViewController {
         
         print("play")
         
-        let res = APIController.startContainer(id: container.id)
+        let (status, response) = APIController.startContainer(id: container.id)
         
-        print(res)
-        if res {
+        print(status)
+        if status {
             print("ok")
             
             let api = APIController()
@@ -64,6 +64,13 @@ class ContainerDetailsViewController: UITableViewController {
             print(container.state)
             refresh()
 
+        }
+        else{
+            let errorPopover = UIAlertController(title: "Erreur", message: response, preferredStyle: UIAlertControllerStyle.alert)
+            errorPopover.addAction(UIAlertAction(title: "Fermer", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(errorPopover, animated: true, completion: nil)
+            
         }
     }
     @IBAction func stop(_ sender: UIButton) {
