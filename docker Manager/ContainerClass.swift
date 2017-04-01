@@ -20,8 +20,9 @@ class Container {
     var status: String
     var ports: [[String:Any]]
     var finishedAt: String
+    var volumes: [[String : Any]]
     
-    init(id:String, names:[String], image_name:String = "", image_id:String = "", command:String = "", created:Int = 0, state:String = "", status:String = "", ports:[[String:Any]] = [], finishedAt: String = "") {
+    init(id:String, names:[String], image_name:String = "", image_id:String = "", command:String = "", created:Int = 0, state:String = "", status:String = "", ports:[[String:Any]] = [], finishedAt: String = "", volumes: [[String:Any]]) {
         self.id = id
         self.names = names
         self.image_name = image_name
@@ -32,6 +33,7 @@ class Container {
         self.status = status
         self.ports = ports
         self.finishedAt = finishedAt
+        self.volumes = volumes
     }
     
     func getImgState() -> UIImage? {
@@ -59,8 +61,8 @@ class Container {
         return dateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(created)))
     }
     
-    func getPortsAsString() -> String{
-        var strPorts = ""
+    func getFormattedPorts() -> String{
+        let strPorts = ""
         
         print(ports)
         
@@ -71,6 +73,24 @@ class Container {
         return strPorts
     }
 
+    func getFormattedVolume() -> String {
+        var volume = ""
+        
+        if volumes.count > 0 {
+            
+            volume += volumes.first?["Destination"] as! String
+        }
+        
+        return volume
+    }
+    
+    func getLogs() -> String {
+        var logs = ""
+        print("before logs")
+        logs = APIController().getLogs(uuid: self.id)
+        print("after logs")
+        return logs
+    }
     
     
 //    func getImage() -> Image {
