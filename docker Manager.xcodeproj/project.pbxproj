@@ -28,7 +28,6 @@
 		8BFA4A741E7AC55900A3B311 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFA4A721E7AC55900A3B311 /* LaunchScreen.storyboard */; };
 		8BFA4A7F1E7AC55A00A3B311 /* docker_ManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA4A7E1E7AC55A00A3B311 /* docker_ManagerTests.swift */; };
 		8BFA4A8A1E7AED6F00A3B311 /* DispatcherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA4A891E7AED6F00A3B311 /* DispatcherController.swift */; };
-		8BFA4A8E1E7AF55B00A3B311 /* DashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA4A8D1E7AF55B00A3B311 /* DashboardTableViewCell.swift */; };
 		8BFA4A901E7AFB0600A3B311 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA4A8F1E7AFB0600A3B311 /* DashboardViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,7 +67,6 @@
 		8BFA4A7E1E7AC55A00A3B311 /* docker_ManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = docker_ManagerTests.swift; sourceTree = "<group>"; };
 		8BFA4A801E7AC55A00A3B311 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BFA4A891E7AED6F00A3B311 /* DispatcherController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatcherController.swift; sourceTree = "<group>"; };
-		8BFA4A8D1E7AF55B00A3B311 /* DashboardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardTableViewCell.swift; sourceTree = "<group>"; };
 		8BFA4A8F1E7AFB0600A3B311 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,7 +111,6 @@
 			children = (
 				8B525D0F1E8405A200FFDB3A /* Image.swift */,
 				8B525D0D1E84059500FFDB3A /* ContainerClass.swift */,
-				8BFA4A8D1E7AF55B00A3B311 /* DashboardTableViewCell.swift */,
 				8BFA4A661E7AC55900A3B311 /* AppDelegate.swift */,
 				8BFA4A6A1E7AC55900A3B311 /* Main.storyboard */,
 				8BFA4A701E7AC55900A3B311 /* Assets.xcassets */,
@@ -251,7 +248,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B6574CA1E8436D000F6389E /* ControllerAPI.swift in Sources */,
-				8BFA4A8E1E7AF55B00A3B311 /* DashboardTableViewCell.swift in Sources */,
 				8B525D081E82E83800FFDB3A /* TourPageViewController.swift in Sources */,
 				8B99BCA31E856B0C004E30BF /* ImageTableViewController.swift in Sources */,
 				8B525CFE1E7C16EB00FFDB3A /* ContainerTableViewController.swift in Sources */,
