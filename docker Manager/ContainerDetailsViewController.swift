@@ -76,11 +76,11 @@ class ContainerDetailsViewController: UITableViewController {
     @IBAction func stop(_ sender: UIButton) {
         print("stop")
         
-        let res = APIController.stopContainer(id: container.id)
+        let (status, response) = APIController.stopContainer(id: container.id)
         
         //TMP
         
-        if res {
+        if status {
             print("ok")
             
             let api = APIController()
@@ -90,7 +90,14 @@ class ContainerDetailsViewController: UITableViewController {
             print("on stop return")
             print(container.state)
             refresh()
+        }else{
+            let errorPopover = UIAlertController(title: "Erreur", message: response, preferredStyle: UIAlertControllerStyle.alert)
+            errorPopover.addAction(UIAlertAction(title: "Fermer", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(errorPopover, animated: true, completion: nil)
+            
         }
+        
 
         
     }

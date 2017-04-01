@@ -148,10 +148,10 @@ class APIController {
         return (status, responseString)
 
     }
-    static func stopContainer(id: String) -> Bool{
-        var ret = false
-        
+    static func stopContainer(id: String) -> (status: Bool, response: String){
         let semaphore = DispatchSemaphore(value: 0)
+        var status:Bool = false
+        var responseString = ""
         
         var request = URLRequest(url: URL(string: "\(getUrl())/containers/\(id)/stop")!)
         request.httpMethod = "POST"
@@ -166,14 +166,35 @@ class APIController {
              print("response = \(response)")
              }*/
             
-            print("id:")
-            print(id)
             
             let httpStatus = response as? HTTPURLResponse
-            print(httpStatus?.statusCode)
+            let statusCode = (httpStatus?.statusCode)!
             
-            let responseString = String(data: data, encoding: .utf8)
+            print(APIController().VALID_CODES)
+            print(statusCode)
+            
+            if APIController().VALID_CODES.index(of: statusCode) != nil {
+                status = true
+            }
+            
+            
+            responseString = String(data: data, encoding: .utf8)!
             print("responseString = \(responseString)")
+            
+
+            switch statusCode {
+            case 304:
+                responseString = "Le container est déjà arrêté"
+                break;
+            case 404:
+                responseString = "Aucun container ne correspond à votre demande"
+                break;
+            case 500:
+                responseString = "Mauvais paramètre !"
+                break;
+            default:
+                break;
+            }
             
             semaphore.signal()
         }
@@ -181,10 +202,7 @@ class APIController {
         
         semaphore.wait()
         
-        ret = true
-
-    
-        return ret
+        return (status, responseString)
         
     }
     
