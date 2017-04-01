@@ -224,13 +224,13 @@
         <scene sceneID="XOD-wo-B6s">
             <objects>
                 <tableViewController title="Containers" id="p7m-CG-FeJ" customClass="ContainerTableViewController" customModule="docker_Manager" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="g5i-jK-nNY">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="g5i-jK-nNY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="containerCell" id="mg7-jT-BMw" customClass="ContainerTableViewCell" customModule="docker_Manager" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mg7-jT-BMw" id="qtf-v8-QVh">
                                     <frame key="frameInset" width="375" height="43"/>
@@ -264,6 +264,28 @@
                                     <segue destination="D0I-fj-XH6" kind="show" id="wDg-OT-1wN"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="containerCtrlCell" id="RPh-tO-U7N" customClass="ContainerTableViewCell" customModule="docker_Manager" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="164" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RPh-tO-U7N" id="IHJ-Gv-dWA">
+                                    <frame key="frameInset" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="aC0-MJ-KFE">
+                                            <frame key="frameInset" minX="16" minY="3" width="32" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                            <state key="normal" image="icon-play">
+                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <segue destination="plA-I5-Vss" kind="show" id="mOw-Y5-5s0"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="containerCell"/>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="p7m-CG-FeJ" id="Dpw-Rn-SB1"/>
@@ -275,6 +297,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2VA-iJ-Iez" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4956" y="322"/>
+        </scene>
+        <!--New Container View Controller-->
+        <scene sceneID="J1E-Lc-LPg">
+            <objects>
+                <viewController id="plA-I5-Vss" customClass="NewContainerViewController" customModule="docker_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dZI-wG-bwC"/>
+                        <viewControllerLayoutGuide type="bottom" id="JVL-VU-1j9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="r9d-Fb-2tR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex: Redis #1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lse-gp-Q7x">
+                                <frame key="frameInset" minX="193" minY="227" width="166" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nom du container" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bx0-4E-ACo">
+                                <frame key="frameInset" minX="16" minY="230" width="169" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex: ubuntu:latest" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lUd-Mh-fwo">
+                                <frame key="frameInset" minX="193" minY="281" width="166" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nom de l'image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZh-Hm-Euv">
+                                <frame key="frameInset" minX="16" minY="284" width="169" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esB-iV-3cO">
+                                <frame key="frameInset" minX="135" minY="410" width="106" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Enregistrer"/>
+                                <connections>
+                                    <action selector="saveNewContainer:" destination="plA-I5-Vss" eventType="touchUpInside" id="7G0-j1-fPM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="txtContainerImage" destination="lUd-Mh-fwo" id="WBO-O2-pbm"/>
+                        <outlet property="txtContainerName" destination="lse-gp-Q7x" id="aBa-g7-9dH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8lA-p9-7n3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5840.8000000000002" y="321.58920539730138"/>
         </scene>
         <!--Item-->
         <scene sceneID="vkI-Ut-TQO">
@@ -368,6 +450,9 @@
                                                     <frame key="frameInset" minX="117" minY="6" width="34" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Logs"/>
+                                                    <connections>
+                                                        <action selector="logs:" destination="D0I-fj-XH6" eventType="touchUpInside" id="VWu-CJ-J7J"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="iHz-uO-2cM">
                                                     <frame key="frameInset" minX="45" minY="5" width="32" height="32"/>
@@ -625,6 +710,8 @@
                         <outlet property="lblFinishedAt" destination="lkq-LJ-231" id="bv4-5d-5J0"/>
                         <outlet property="lblImageName" destination="cWy-Sc-blg" id="AwI-NC-uN1"/>
                         <outlet property="lblPorts" destination="m9a-BR-cRS" id="ELa-Bp-qhh"/>
+                        <outlet property="lblVolume" destination="dPv-dG-Y5x" id="1ub-d2-hgY"/>
+                        <outlet property="logsButton" destination="TJF-w5-BLG" id="5zW-iJ-91x"/>
                         <outlet property="playButton" destination="DNO-gW-AXv" id="HJN-up-0vv"/>
                         <outlet property="removeButton" destination="pNF-GS-eTV" id="tIp-3V-1VY"/>
                         <outlet property="stopButton" destination="iHz-uO-2cM" id="BHc-bS-QL0"/>
