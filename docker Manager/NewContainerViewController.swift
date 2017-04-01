@@ -12,12 +12,14 @@ class NewContainerViewController: UIViewController {
 
     @IBOutlet weak var txtContainerName: UITextField!
     @IBOutlet weak var txtContainerImage: UITextField!
+    @IBOutlet weak var txtContainerCmd: UITextField!
     @IBAction func saveNewContainer(_ sender: AnyObject) {
         let name = txtContainerName.text
         let image = txtContainerImage.text
+        let cmd = txtContainerCmd.text
         
-        if name != nil && image != nil {
-            let res = APIController().createContainer(nameContainer: name!, nameImage: image!)
+        if name != nil && image != nil && cmd != nil {
+            let res = APIController().createContainer(nameContainer: name!, nameImage: image!, cmd: cmd!)
             print(res)
             
             
