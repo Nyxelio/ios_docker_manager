@@ -22,6 +22,9 @@ class ContainerTableViewController: UITableViewController {
         tabBarItem.badgeValue = String(DataStore.containers.count)
         
         
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: Selector("refresh"), for: UIControlEvents.valueChanged)
+        self.refreshControl = refreshControl
         
     }
     required init?(coder aDecoder: NSCoder) {
@@ -31,6 +34,15 @@ class ContainerTableViewController: UITableViewController {
         tabBarItem = UITabBarItem(title: "Containers", image: UIImage(named: "icon-server"), tag: 1)
         
 
+    }
+    
+    func refresh() {
+        
+        containers = DataStore.containers
+        tabBarItem.badgeValue = String(DataStore.containers.count)
+        
+        tableView.reloadData()
+        refreshControl?.endRefreshing()
     }
 
     override func didReceiveMemoryWarning() {
