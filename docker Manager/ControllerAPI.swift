@@ -23,7 +23,9 @@ class APIController {
             for item in self.jsonDataArray {
                 print("============= test ============= ")
                 
-                let container = Container(id: (item["Id"] as? String)!, names: (item["Names"] as? [String])!, image_name: (item["Image"] as? String)!, image_id: (item["ImageID"] as? String)!, command: (item["Command"] as? String)!, created: (item["Created"] as? Int)!, state: (item["State"] as? String)!, status: (item["Status"] as? String)!, ports: (item["Ports"] as? [[String:Any]])!)
+                let container = Container(id: (item["Id"] as? String)!, names: (item["Names"] as? [String])!, image_name: (item["Image"] as? String)!, image_id: (item["ImageID"] as? String)!, command: (item["Command"] as? String)!, created: (item["Created"] as? Int)!, state: (item["State"] as? String)!, status: (item["Status"] as? String)!, ports: (item["Ports"] as? [[String:Any]])!, volumes: (item["Mounts"] as? [[String:Any]])!)
+                
+                
                 
                 containers.append(container)
             }
@@ -245,7 +247,7 @@ class APIController {
             let status = state?["Status"]
             let finishedAt = state?["FinishedAt"]
             
-            let container = Container(id: (item["Id"] as? String)!, names: names, image_name: (image_name as? String)!, command: (cmd )!, state: (status as? String)!, status: (status as? String)!, finishedAt: (finishedAt as? String)!)
+            let container = Container(id: (item["Id"] as? String)!, names: names, image_name: (image_name as? String)!, command: (cmd )!, state: (status as? String)!, status: (status as? String)!, finishedAt: (finishedAt as? String)!, volumes: (item["Mounts"] as? [[String:Any]])!)
             
             print("in callback")
             containers.append(container)
@@ -254,6 +256,114 @@ class APIController {
         semaphore.wait()
         return containers[0]
     }
+    
+    
+    // Get logs
+    func getLogs (uuid: String) -> String {
+        
+        let semaphore = DispatchSemaphore(value: 0)
+        
+        var responseString = ""
+        
+        let request = URLRequest(url: URL(string: "\(self.url)/containers/\(uuid)/logs?stdout=true&stderr=true")!)
+        //let postString = "id=13&name=Jack"
+        //request.httpBody = postString.data(using: .utf8)
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {                                                                 print("error=\(error)")
+                return
+            }
+            
+            /*if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+             print("statusCode should be 200, but is \(httpStatus.statusCode)")
+             print("response = \(response)")
+             }*/
+            
+            print("id:")
+            print(uuid)
+            
+            let httpStatus = response as? HTTPURLResponse
+            print(httpStatus?.statusCode)
+            
+            responseString = String(NSString(data: data, encoding: String.Encoding.utf8.rawValue)!)
+
+            print("responseString = \(responseString)")
+            
+            
+            semaphore.signal()
+        }
+        task.resume()
+        
+        semaphore.wait()
+        
+        
+        return responseString
+    }
+    
+    //Creation container
+    func createContainer (nameContainer: String, nameImage: String) -> String{
+        var toReturn : String = ""
+        let semaphore = DispatchSemaphore(value: 0)
+        let parameters = ["image": nameImage] as Dictionary<String, Any>
+        
+        let tmp_url = self.url + "/containers/create?name=\(nameContainer)"
+        let session = URLSession.shared
+        
+        var request = URLRequest(url: URL(string: tmp_url)!)
+        request.httpMethod = "POST"
+        
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+            
+            guard error == nil else {
+                return
+            }
+            
+            guard data != nil else {
+                return
+            }
+            
+            do {
+                //create json object from data
+                
+                let httpStatus = response as? HTTPURLResponse
+                let httpStatusCode:Int = (httpStatus?.statusCode)!
+                
+                switch httpStatusCode {
+                case 201:
+                    toReturn = "Conteneur créé !"
+                    break;
+                case 404:
+                    toReturn = "Aucune image ne correspond à votre demande !"
+                    break;
+                case 400:
+                    toReturn = "Mauvais paramètre !"
+                    break;
+                default:
+                    toReturn = ""
+                    break;
+                    
+                }
+                
+                semaphore.signal()
+                
+            } catch let error {
+                print(error.localizedDescription)
+            }
+        })
+        task.resume()
+        semaphore.wait()
+        return toReturn
+    }
+
     
     ////////////////////IMAGES ///////////////////////
     // Get all image
