@@ -10,7 +10,7 @@ import UIKit
 
 class ContainerDetailsViewController: UITableViewController {
     
-    var container:Container = Container(id: "0", names: ["TEST"], image_name: "ubuntu:latest", command: "echo 222", created: 1367854154,state: "running", ports: [] )
+    var container:Container = Container(id: "0", names: ["TEST"], image_name: "ubuntu:latest", command: "echo 222", created: 1367854154,state: "running", ports: [], volumes: [] )
 
     @IBOutlet weak var lblContainerName: UILabel!
     
@@ -24,12 +24,28 @@ class ContainerDetailsViewController: UITableViewController {
     @IBOutlet weak var lblCmd: UILabel!
     @IBOutlet weak var lblPorts: UILabel!
     
+    @IBOutlet weak var logsButton: UIButton!
+    
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var removeButton: UIButton!
     
     @IBOutlet weak var lblFinishedAt: UILabel!
+    @IBOutlet weak var lblVolume: UILabel!
     
+    @IBAction func logs(_ sender: AnyObject) {
+        print("action")
+        let logs = container.getLogs()
+        print("logs")
+        print(logs)
+        
+        let logsController = UIAlertController(title: "Logs", message:
+            logs, preferredStyle: UIAlertControllerStyle.alert)
+        logsController.addAction(UIAlertAction(title: "Fermer", style: UIAlertActionStyle.default,handler: nil))
+        
+        self.present(logsController, animated: true, completion: nil)
+
+    }
     @IBAction func play(_ sender: UIButton) {
         
         print("play")
@@ -92,8 +108,10 @@ class ContainerDetailsViewController: UITableViewController {
         lblContainerCreatedAt.text = container.getCreatedAt()
         lblImageName.text = container.image_name
         lblCmd.text = container.command
-        lblPorts.text = container.getPortsAsString()
+        lblPorts.text = container.getFormattedPorts()
         lblFinishedAt.text = container.finishedAt
+        
+        lblVolume.text = container.getFormattedVolume()
 
         
     }
