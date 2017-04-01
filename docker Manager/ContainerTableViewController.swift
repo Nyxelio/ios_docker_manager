@@ -38,6 +38,11 @@ class ContainerTableViewController: UITableViewController {
     
     func refresh() {
         
+        
+        let api = APIController()
+        
+        DataStore.containers = api.getContainerAll()
+
         containers = DataStore.containers
         tabBarItem.badgeValue = String(DataStore.containers.count)
         

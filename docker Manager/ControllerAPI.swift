@@ -206,10 +206,11 @@ class APIController {
         
     }
     
-    static func removeContainer(id: String) -> Bool{
-        var ret = false
+    static func removeContainer(id: String) -> (status: Bool, response: String){
         let semaphore = DispatchSemaphore(value: 0)
-
+        var status:Bool = false
+        var responseString = ""
+        
         var request = URLRequest(url: URL(string: "\(getUrl())/containers/\(id)")!)
         request.httpMethod = "DELETE"
         //let postString = "id=13&name=Jack"
@@ -224,16 +225,36 @@ class APIController {
                 print("response = \(response)")
             }*/
             
-            print("id:")
-            print(id)
-          
-            let httpStatus = response as? HTTPURLResponse
-            print(httpStatus?.statusCode)
             
-            let responseString = String(data: data, encoding: .utf8)
+            let httpStatus = response as? HTTPURLResponse
+            let statusCode = (httpStatus?.statusCode)!
+            
+            print(APIController().VALID_CODES)
+            print(statusCode)
+            
+            if APIController().VALID_CODES.index(of: statusCode) != nil {
+                status = true
+            }
+            
+            
+            responseString = String(data: data, encoding: .utf8)!
             print("responseString = \(responseString)")
             
-            ret = true
+            
+            switch statusCode {
+            case 409:
+                responseString = "Conflit"
+                break;
+            case 404:
+                responseString = "Aucun container ne correspond à votre demande"
+                break;
+            case 400,500:
+                responseString = "Mauvais paramètre !"
+                break;
+            default:
+                break;
+            }
+            
             
             semaphore.signal()
         }
@@ -241,9 +262,7 @@ class APIController {
         
         semaphore.wait()
         
-        ret = true
-
-        return ret
+        return (status, responseString)
     }
     
     

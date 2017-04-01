@@ -106,10 +106,26 @@ class ContainerDetailsViewController: UITableViewController {
         print("remove")
         
         
-        let res = APIController.removeContainer(id: container.id)
+        let (status, response) = APIController.removeContainer(id: container.id)
         
-        if res {
+        if status {
             print("ok")
+            
+            let api = APIController()
+            
+            DataStore.containers = api.getContainerAll()
+            
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            
+            let containerTableController = storyBoard.instantiateViewController(withIdentifier: "containerTableView") as! ContainerTableViewController
+            //self.presentViewController(nextViewController, animated:true, completion:nil)
+            self.navigationController?.pushViewController(containerTableController, animated: true)
+        }else{
+            let errorPopover = UIAlertController(title: "Erreur", message: response, preferredStyle: UIAlertControllerStyle.alert)
+            errorPopover.addAction(UIAlertAction(title: "Fermer", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(errorPopover, animated: true, completion: nil)
+            
         }
 
     }
