@@ -15,8 +15,6 @@ class TourPageViewController: UIPageViewController,UIPageViewControllerDataSourc
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
         self.dataSource = self
         self.delegate = self
@@ -40,14 +38,7 @@ class TourPageViewController: UIPageViewController,UIPageViewControllerDataSourc
     
     func viewControllerAtIndex(index: Int) -> UIViewController! {
         
-        print(index)
-        /*if(index<0 || index>4)
-        {
-            return nil
-        }*/
-        print("Tour"+String(index+1)+"View")
-        
-        return self.storyboard!.instantiateViewController(withIdentifier: "Tour"+String(index+1)+"View")
+       return self.storyboard!.instantiateViewController(withIdentifier: "Tour"+String(index+1)+"View")
         
     
     }
@@ -57,17 +48,11 @@ class TourPageViewController: UIPageViewController,UIPageViewControllerDataSourc
         let identifier = viewController.restorationIdentifier
         let index = self.identifiers.index(of: identifier!)
         
-        print("after")
-        print(identifier!)
-        print(index)
-        print(identifiers.count)
-        //if the index is the end of the array, return nil since we dont want a view controller after the last one
         if index == identifiers.count - 1 {
             
             return nil
         }
         
-        //increment the index to get the viewController after the current index
         self.index = self.index + 1
         return self.viewControllerAtIndex(index: self.index)
         
@@ -78,20 +63,11 @@ class TourPageViewController: UIPageViewController,UIPageViewControllerDataSourc
         let identifier = viewController.restorationIdentifier
         let index = self.identifiers.index(of: identifier!)
         
-        //if the index is 0, return nil since we dont want a view controller before the first one
-        /*if index == 0 {
-            
-            return nil
-        }*/
-        
-        print("in before")
-        print(index)
-        
         if index != 0 {
             self.index = self.index - 1
 
         }
-        //decrement the index to get the viewController before the current one
+        
         return self.viewControllerAtIndex(index: self.index)
         
     }
@@ -100,7 +76,6 @@ class TourPageViewController: UIPageViewController,UIPageViewControllerDataSourc
         let appearance = UIPageControl.appearance()
         appearance.pageIndicatorTintColor = UIColor.gray
         appearance.currentPageIndicatorTintColor = UIColor.white
-        //appearance.backgroundColor = UIColor.black
         appearance.backgroundColor =  UIColor(red: 0x9B/255, green: 0x59/255, blue: 0xB6/255, alpha: 1)
     }
     
@@ -113,15 +88,4 @@ class TourPageViewController: UIPageViewController,UIPageViewControllerDataSourc
         return 0
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-
-
 }

@@ -63,13 +63,6 @@ class Container {
     
     func getFormattedPorts() -> String{
         let strPorts = ""
-        
-        print(ports)
-        
-        /*for port in ports {
-            //strPorts += port["PublicPort"]
-        }*/
-        
         return strPorts
     }
 
@@ -86,15 +79,7 @@ class Container {
     
     func getLogs() -> String {
         var logs = ""
-        print("before logs")
         logs = APIController().getLogs(uuid: self.id)
-        print("after logs")
         return logs
     }
-    
-    
-//    func getImage() -> Image {
-//        
-//    }
-    
 }

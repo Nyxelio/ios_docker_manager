@@ -10,10 +10,7 @@ import UIKit
 
 class ContainerTableViewController: UITableViewController {
 
-    //var containers:[Container] = []
     var containers:[Container] = []
-
-    //@IBOutlet var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +20,7 @@ class ContainerTableViewController: UITableViewController {
         
         
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: Selector("refresh"), for: UIControlEvents.valueChanged)
+        refreshControl.addTarget(self, action: #selector(ContainerTableViewController.refresh), for: UIControlEvents.valueChanged)
         self.refreshControl = refreshControl
         
     }
@@ -32,12 +29,10 @@ class ContainerTableViewController: UITableViewController {
         
         // Initialize Tab Bar Item
         tabBarItem = UITabBarItem(title: "Containers", image: UIImage(named: "icon-server"), tag: 1)
-        
 
     }
     
     func refresh() {
-        
         
         let api = APIController()
         
@@ -58,12 +53,11 @@ class ContainerTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+
         return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         
         if(section == 0){
                 return 1
@@ -83,8 +77,6 @@ class ContainerTableViewController: UITableViewController {
             
             let container = containers[indexPath.row]
             
-            // Configure the cell...
-            
             cell.update(name: container.getName(), imgState: container.getImgState())
             return cell
         }
@@ -94,9 +86,6 @@ class ContainerTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-
         if (tableView.indexPathForSelectedRow != nil) {
             let index = tableView.indexPathForSelectedRow!
             

@@ -23,9 +23,6 @@ class DispatcherController: UITabBarController {
         DataStore.containers = api.getContainerAll()
         DataStore.images = api.getAllImage()
         
-        print("DISPATCHER")
-        
-        //print(DataStore.containers)
         
         // tabbar background
         tabBar.barTintColor = UIColor(red: 0x9B/255, green: 0x59/255, blue: 0xB6/255, alpha: 1)
@@ -42,15 +39,4 @@ class DispatcherController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

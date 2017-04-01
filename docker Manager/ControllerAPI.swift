@@ -15,14 +15,12 @@ class APIController {
     let VALID_CODES = [200, 201, 204]
     
     func getContainerAll () -> [Container] {
-        print("============= get Container all ============= ")
         let tmp_url = self.url + "/containers/json?all=1"
         var containers : [Container] = []
         let semaphore = DispatchSemaphore(value: 0)
         
         doCall(urlPath: tmp_url){ code in
             for item in self.jsonDataArray {
-                print("============= test ============= ")
                 
                 let container = Container(id: (item["Id"] as? String)!, names: (item["Names"] as? [String])!, image_name: (item["Image"] as? String)!, image_id: (item["ImageID"] as? String)!, command: (item["Command"] as? String)!, created: (item["Created"] as? Int)!, state: (item["State"] as? String)!, status: (item["Status"] as? String)!, ports: (item["Ports"] as? [[String:Any]])!, volumes: (item["Mounts"] as? [[String:Any]])!)
                 
@@ -37,18 +35,15 @@ class APIController {
     }
     
     func doCall (urlPath:String, completion: @escaping (Int) -> ()) {
-        print(urlPath)
         var request = URLRequest(url: URL(string: urlPath)!)
         request.httpMethod = "GET"
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard error == nil else {
-                print(error!)
                 completion(0)
                 return
             }
             guard let data = data else {
-                print("Data is empty")
                 completion(0)
                 return
             }
@@ -57,28 +52,19 @@ class APIController {
             do {
                 let httpStatus = response as? HTTPURLResponse
                 let httpStatusCode:Int = (httpStatus?.statusCode)!
-                print(data)
                 let json = try JSONSerialization.jsonObject(with: data, options: []) as? [[String:Any]]
                 
                 if(json == nil) {
                     let test = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any]
                     self.jsonData = test!
                 } else {
-                    print(json)
                     
                     self.jsonDataArray = json!
                 }
                 
                 completion(httpStatusCode)
             } catch {
-                print("json marche pas")
             }
-            
-            
-            //            let response = String(data: data, encoding: .utf8)
-            //            let item = json?.first as? [String: Any]
-            
-            //            print(json["Id"])
             
         }
         
@@ -113,31 +99,18 @@ class APIController {
         request.httpMethod = "POST"
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {                                                                 print("error=\(error)")
+            guard let data = data, error == nil else {
                 return
             }
             
-            /*if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
-             print("statusCode should be 200, but is \(httpStatus.statusCode)")
-             print("response = \(response)")
-             }*/
-            
-            print("id:")
-            print(id)
-            
-            
             let httpStatus = response as? HTTPURLResponse
             let statusCode = (httpStatus?.statusCode)!
-            
-            print(APIController().VALID_CODES)
-            print(statusCode)
             
             if APIController().VALID_CODES.index(of: statusCode) != nil {
                 status = true
             }
             
             responseString = String(data: data, encoding: .utf8)!
-            print("responseString = \(responseString)")
             
             semaphore.signal()
         }
@@ -157,21 +130,12 @@ class APIController {
         request.httpMethod = "POST"
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {                                                                 print("error=\(error)")
+            guard let data = data, error == nil else {
                 return
             }
             
-            /*if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
-             print("statusCode should be 200, but is \(httpStatus.statusCode)")
-             print("response = \(response)")
-             }*/
-            
-            
             let httpStatus = response as? HTTPURLResponse
             let statusCode = (httpStatus?.statusCode)!
-            
-            print(APIController().VALID_CODES)
-            print(statusCode)
             
             if APIController().VALID_CODES.index(of: statusCode) != nil {
                 status = true
@@ -179,8 +143,7 @@ class APIController {
             
             
             responseString = String(data: data, encoding: .utf8)!
-            print("responseString = \(responseString)")
-            
+           
 
             switch statusCode {
             case 304:
@@ -213,24 +176,15 @@ class APIController {
         
         var request = URLRequest(url: URL(string: "\(getUrl())/containers/\(id)")!)
         request.httpMethod = "DELETE"
-        //let postString = "id=13&name=Jack"
-        //request.httpBody = postString.data(using: .utf8)
+        
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {                                                                 print("error=\(error)")
+            guard let data = data, error == nil else {
                 return
             }
-            
-            /*if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
-                print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                print("response = \(response)")
-            }*/
-            
             
             let httpStatus = response as? HTTPURLResponse
             let statusCode = (httpStatus?.statusCode)!
             
-            print(APIController().VALID_CODES)
-            print(statusCode)
             
             if APIController().VALID_CODES.index(of: statusCode) != nil {
                 status = true
@@ -238,7 +192,6 @@ class APIController {
             
             
             responseString = String(data: data, encoding: .utf8)!
-            print("responseString = \(responseString)")
             
             
             switch statusCode {
@@ -268,14 +221,11 @@ class APIController {
     
     // get specific container
     func getContainer (uuid : String) -> Container {
-        print("============= get Container ============= ")
         let tmp_url = "\(self.url)/containers/\(uuid)/json"
         var containers : [Container] = []
         let semaphore = DispatchSemaphore(value: 0)
         
         doCall(urlPath: tmp_url){ code in
-            print("============= json data ============= ")
-            print(self.jsonData)
             let item = self.jsonData
             
             var names : [String] = []
@@ -293,7 +243,6 @@ class APIController {
             
             let container = Container(id: (item["Id"] as? String)!, names: names, image_name: (image_name as? String)!, command: (cmd )!, state: (status as? String)!, status: (status as? String)!, finishedAt: (finishedAt as? String)!, volumes: (item["Mounts"] as? [[String:Any]])!)
             
-            print("in callback")
             containers.append(container)
             semaphore.signal()
         }
@@ -310,35 +259,18 @@ class APIController {
         var responseString = ""
         
         let request = URLRequest(url: URL(string: "\(self.url)/containers/\(uuid)/logs?stdout=true&stderr=true")!)
-        //let postString = "id=13&name=Jack"
-        //request.httpBody = postString.data(using: .utf8)
+        
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {                                                                 print("error=\(error)")
                 return
             }
             
-            /*if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
-             print("statusCode should be 200, but is \(httpStatus.statusCode)")
-             print("response = \(response)")
-             }*/
-            
-            print("id:")
-            print(uuid)
-            
-            let httpStatus = response as? HTTPURLResponse
-            print(httpStatus?.statusCode)
-            
-            print(data)
             let formattedData = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
             
             if formattedData != nil {
                 responseString = formattedData! as String
 
             }
-            
-            print("responseString = \(responseString)")
-            
-            
             semaphore.signal()
         }
         task.resume()
@@ -364,8 +296,7 @@ class APIController {
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
             
-        } catch let error {
-            print(error.localizedDescription)
+        } catch {
         }
         
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -382,7 +313,6 @@ class APIController {
             }
             
             do {
-                //create json object from data
                 
                 let httpStatus = response as? HTTPURLResponse
                 let httpStatusCode:Int = (httpStatus?.statusCode)!
@@ -405,8 +335,6 @@ class APIController {
                 
                 semaphore.signal()
                 
-            } catch let error {
-                print(error.localizedDescription)
             }
         })
         task.resume()

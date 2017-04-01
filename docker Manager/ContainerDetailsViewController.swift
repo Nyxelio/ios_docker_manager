@@ -34,10 +34,7 @@ class ContainerDetailsViewController: UITableViewController {
     @IBOutlet weak var lblVolume: UILabel!
     
     @IBAction func logs(_ sender: AnyObject) {
-        print("action")
         let logs = container.getLogs()
-        print("logs")
-        print(logs)
         
         let logsController = UIAlertController(title: "Logs", message:
             logs, preferredStyle: UIAlertControllerStyle.alert)
@@ -48,20 +45,13 @@ class ContainerDetailsViewController: UITableViewController {
     }
     @IBAction func play(_ sender: UIButton) {
         
-        print("play")
-        
         let (status, response) = APIController.startContainer(id: container.id)
         
-        print(status)
         if status {
-            print("ok")
             
             let api = APIController()
             
             container = api.getContainer(uuid: container.id)
-            
-            print("on play return")
-            print(container.state)
             refresh()
 
         }
@@ -74,21 +64,15 @@ class ContainerDetailsViewController: UITableViewController {
         }
     }
     @IBAction func stop(_ sender: UIButton) {
-        print("stop")
         
         let (status, response) = APIController.stopContainer(id: container.id)
         
-        //TMP
-        
         if status {
-            print("ok")
             
             let api = APIController()
             
             container = api.getContainer(uuid: container.id)
             
-            print("on stop return")
-            print(container.state)
             refresh()
         }else{
             let errorPopover = UIAlertController(title: "Erreur", message: response, preferredStyle: UIAlertControllerStyle.alert)
@@ -103,13 +87,11 @@ class ContainerDetailsViewController: UITableViewController {
     }
     
     @IBAction func remove(_ sender: UIButton) {
-        print("remove")
-        
+     
         
         let (status, response) = APIController.removeContainer(id: container.id)
         
         if status {
-            print("ok")
             
             let api = APIController()
             
@@ -118,7 +100,6 @@ class ContainerDetailsViewController: UITableViewController {
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             
             let containerTableController = storyBoard.instantiateViewController(withIdentifier: "containerTableView") as! ContainerTableViewController
-            //self.presentViewController(nextViewController, animated:true, completion:nil)
             self.navigationController?.pushViewController(containerTableController, animated: true)
         }else{
             let errorPopover = UIAlertController(title: "Erreur", message: response, preferredStyle: UIAlertControllerStyle.alert)
@@ -134,7 +115,6 @@ class ContainerDetailsViewController: UITableViewController {
         
         lblContainerName.text = container.getName()
         lblContainerState.text = container.state
-        //lblContainerIP.text = container.IP
         lblContainerCreatedAt.text = container.getCreatedAt()
         lblImageName.text = container.image_name
         lblCmd.text = container.command
@@ -149,7 +129,6 @@ class ContainerDetailsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         refresh()
         
         playButton.layer.backgroundColor = UIColor(red: 0x28/255, green: 0x60/255, blue: 0x90/255, alpha: 1).cgColor
@@ -164,42 +143,5 @@ class ContainerDetailsViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    /*
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        //return containers.count
-        return 1
-    }
-    
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "containerCell") as! ContainerTableViewCell
-        
-        /*let container = containers[indexPath.row]
-        
-        // Configure the cell...
-        
-        cell.update(name: container.getName(), imgState: container.getImgState())*/
-        return cell
-    }
-    */
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

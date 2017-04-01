@@ -14,7 +14,6 @@
 		8B525D0C1E83D66B00FFDB3A /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B525D0B1E83D66B00FFDB3A /* StartViewController.swift */; };
 		8B525D0E1E84059500FFDB3A /* ContainerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B525D0D1E84059500FFDB3A /* ContainerClass.swift */; };
 		8B525D101E8405A200FFDB3A /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B525D0F1E8405A200FFDB3A /* Image.swift */; };
-		8B525D121E8405AE00FFDB3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B525D111E8405AE00FFDB3A /* ViewController.swift */; };
 		8B6574CA1E8436D000F6389E /* ControllerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6574C91E8436D000F6389E /* ControllerAPI.swift */; };
 		8B99BCA11E851E18004E30BF /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B99BCA01E851E18004E30BF /* DataStore.swift */; };
 		8B99BCA31E856B0C004E30BF /* ImageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B99BCA21E856B0C004E30BF /* ImageTableViewController.swift */; };
@@ -51,7 +50,6 @@
 		8B525D0B1E83D66B00FFDB3A /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		8B525D0D1E84059500FFDB3A /* ContainerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerClass.swift; sourceTree = "<group>"; };
 		8B525D0F1E8405A200FFDB3A /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
-		8B525D111E8405AE00FFDB3A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8B6574C91E8436D000F6389E /* ControllerAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerAPI.swift; sourceTree = "<group>"; };
 		8B99BCA01E851E18004E30BF /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		8B99BCA21E856B0C004E30BF /* ImageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTableViewController.swift; sourceTree = "<group>"; };
@@ -113,7 +111,6 @@
 		8BFA4A651E7AC55900A3B311 /* docker Manager */ = {
 			isa = PBXGroup;
 			children = (
-				8B525D111E8405AE00FFDB3A /* ViewController.swift */,
 				8B525D0F1E8405A200FFDB3A /* Image.swift */,
 				8B525D0D1E84059500FFDB3A /* ContainerClass.swift */,
 				8BFA4A8D1E7AF55B00A3B311 /* DashboardTableViewCell.swift */,
@@ -260,7 +257,6 @@
 				8B525CFE1E7C16EB00FFDB3A /* ContainerTableViewController.swift in Sources */,
 				8BFA4A8A1E7AED6F00A3B311 /* DispatcherController.swift in Sources */,
 				8B99BCAB1E8FC92C004E30BF /* ContainerCtrlCell.swift in Sources */,
-				8B525D121E8405AE00FFDB3A /* ViewController.swift in Sources */,
 				8B525D0C1E83D66B00FFDB3A /* StartViewController.swift in Sources */,
 				8B99BCA91E8D5161004E30BF /* NewContainerViewController.swift in Sources */,
 				8BFA4A671E7AC55900A3B311 /* AppDelegate.swift in Sources */,

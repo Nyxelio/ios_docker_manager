@@ -20,21 +20,11 @@ class DashboardViewController: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
         lblCountContainers.text = String(DataStore.containers.count)
         
         lblCountImages.text = String(DataStore.images.count)
         
-        print("DASHBOARD")
-        //print(DataStore.containers[0])
-        print(DataStore.containers.count)
         
-    
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,15 +39,4 @@ class DashboardViewController: UIViewController
         tabBarItem = UITabBarItem(title: "Dashboard", image: UIImage(named: "icon-dashboard"), tag: 0)
         
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

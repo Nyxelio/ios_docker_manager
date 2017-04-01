@@ -35,12 +35,11 @@ class ImageTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+ 
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return images.count
     }
     
@@ -50,8 +49,6 @@ class ImageTableViewController: UITableViewController {
         
         let image = images[indexPath.row]
         
-        // Configure the cell...
-        
         cell.update(tag: image.getTag())
         return cell
     }
@@ -60,9 +57,6 @@ class ImageTableViewController: UITableViewController {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        
         let index = tableView.indexPathForSelectedRow!
         
         let image = images[index.row]
