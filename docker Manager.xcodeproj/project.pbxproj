@@ -21,6 +21,7 @@
 		8B99BCA71E856EB8004E30BF /* ImageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B99BCA61E856EB8004E30BF /* ImageDetailsViewController.swift */; };
 		8B99BCA91E8D5161004E30BF /* NewContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B99BCA81E8D5161004E30BF /* NewContainerViewController.swift */; };
 		8B99BCAB1E8FC92C004E30BF /* ContainerCtrlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B99BCAA1E8FC92C004E30BF /* ContainerCtrlCell.swift */; };
+		8B99BCAD1E911D1E004E30BF /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B99BCAC1E911D1D004E30BF /* System.swift */; };
 		8BFA4A671E7AC55900A3B311 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA4A661E7AC55900A3B311 /* AppDelegate.swift */; };
 		8BFA4A6C1E7AC55900A3B311 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFA4A6A1E7AC55900A3B311 /* Main.storyboard */; };
 		8BFA4A6F1E7AC55900A3B311 /* docker_Manager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA4A6D1E7AC55900A3B311 /* docker_Manager.xcdatamodeld */; };
@@ -56,6 +57,7 @@
 		8B99BCA61E856EB8004E30BF /* ImageDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDetailsViewController.swift; sourceTree = "<group>"; };
 		8B99BCA81E8D5161004E30BF /* NewContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewContainerViewController.swift; sourceTree = "<group>"; };
 		8B99BCAA1E8FC92C004E30BF /* ContainerCtrlCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerCtrlCell.swift; sourceTree = "<group>"; };
+		8B99BCAC1E911D1D004E30BF /* System.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
 		8BFA4A631E7AC55900A3B311 /* docker Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "docker Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BFA4A661E7AC55900A3B311 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BFA4A6B1E7AC55900A3B311 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				8B99BCA61E856EB8004E30BF /* ImageDetailsViewController.swift */,
 				8B99BCA81E8D5161004E30BF /* NewContainerViewController.swift */,
 				8B99BCAA1E8FC92C004E30BF /* ContainerCtrlCell.swift */,
+				8B99BCAC1E911D1D004E30BF /* System.swift */,
 			);
 			path = "docker Manager";
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				8B6574CA1E8436D000F6389E /* ControllerAPI.swift in Sources */,
 				8B525D081E82E83800FFDB3A /* TourPageViewController.swift in Sources */,
 				8B99BCA31E856B0C004E30BF /* ImageTableViewController.swift in Sources */,
+				8B99BCAD1E911D1E004E30BF /* System.swift in Sources */,
 				8B525CFE1E7C16EB00FFDB3A /* ContainerTableViewController.swift in Sources */,
 				8BFA4A8A1E7AED6F00A3B311 /* DispatcherController.swift in Sources */,
 				8B99BCAB1E8FC92C004E30BF /* ContainerCtrlCell.swift in Sources */,

@@ -371,7 +371,23 @@ class APIController {
         
         return res
     }
-
+    
+    
+    // get info
+    func getInfo () -> System {
+        let tmp_url = "\(self.url)/info"
+        var system : System = System()
+        let semaphore = DispatchSemaphore(value: 0)
+        
+        doCall(urlPath: tmp_url){ code in
+            let item = self.jsonData
+            
+            system = System(containersCount: (item["Containers"] as? Int)!, runningContainersCount: (item["ContainersRunning"] as? Int)!, stoppedContainersCount: (item["ContainersStopped"] as? Int)!,imagesCount: (item["Images"] as? Int)!, name: (item["Name"] as? String)!,os: (item["OperatingSystem"] as? String)!, architecture: (item["Architecture"] as? String)!)
+                        semaphore.signal()
+        }
+        semaphore.wait()
+        return system
+    }
     
     ////////////////////IMAGES ///////////////////////
     // Get all image
