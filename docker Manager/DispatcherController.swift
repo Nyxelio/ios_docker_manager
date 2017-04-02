@@ -22,6 +22,8 @@ class DispatcherController: UITabBarController {
         
         if api.isAccessible() {
             
+            DataStore.system = api.getInfo()
+            
             DataStore.containers = api.getContainerAll()
             DataStore.images = api.getAllImage()
 

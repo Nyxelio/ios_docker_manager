@@ -9,6 +9,7 @@
 import Foundation
 
 class DataStore {
+    static var system: System = System()
     static var containers:[Container] = []
     static var images:[Image] = []
 }
