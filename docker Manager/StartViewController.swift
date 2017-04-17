@@ -27,7 +27,31 @@ class StartViewController: UIViewController {
         
         demoButton.tintColor = UIColor.white
         newAccountButton.tintColor = UIColor.white
+        
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
+        let account = Account(context: context)
+        account.name = "Demo"
+        account.url = "http://91.121.184.50:31337"
+        DataStore.currentAccountUrl = account.url!
+        
+        // Save the data to coredata
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        //fetch
+        do {
+            let accounts = try context.fetch(Account.fetchRequest())
+            print(accounts)
+            //track current account
+            //DataStore.currentAccountName = (accounts[0] as! Account).name!
+            //print(DataStore.currentAccountName)
+
+        }
+        catch {
+            print("Failed to retrieve accounts")
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

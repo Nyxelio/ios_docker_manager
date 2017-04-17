@@ -17,8 +17,7 @@ class DispatcherController: UITabBarController {
         
         // Do any additional setup after loading the view.
         
-        
-        let api = APIController()
+        let api = APIController(url: DataStore.getUrl())
         
         if api.isAccessible() {
             

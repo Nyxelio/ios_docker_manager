@@ -29,7 +29,7 @@ class DashboardTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     
         
-        let api = APIController()
+        let api = APIController(url: DataStore.getUrl())
         
         if api.isAccessible() {
             

@@ -15,7 +15,7 @@ class ContainerTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let api = APIController()
+        let api = APIController(url: DataStore.getUrl())
         
         if api.isAccessible() {
             
@@ -45,7 +45,7 @@ class ContainerTableViewController: UITableViewController {
     
     func refresh() {
         
-        let api = APIController()
+        let api = APIController(url: DataStore.getUrl())
         
         DataStore.containers = api.getContainerAll()
 

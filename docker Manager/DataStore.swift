@@ -12,4 +12,20 @@ class DataStore {
     static var system: System = System()
     static var containers:[Container] = []
     static var images:[Image] = []
+    static var currentAccountUrl: String = ""
+    
+    static func getUrl() -> String {
+        
+        if DataStore.currentAccountUrl != "" {
+            return DataStore.currentAccountUrl
+        }
+        
+        let ip_server = ProcessInfo.processInfo.environment["IP_SERVER"]
+        
+        if(ip_server != nil)
+        {
+            return "http://\(ip_server!)"
+        }
+        return ""
+    }
 }

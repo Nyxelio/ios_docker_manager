@@ -79,7 +79,7 @@ class Container {
     
     func getLogs() -> String {
         var logs = ""
-        logs = APIController().getLogs(uuid: self.id)
+        logs = APIController(url: DataStore.getUrl()).getLogs(uuid: self.id)
         return logs
     }
 }

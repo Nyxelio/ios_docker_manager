@@ -9,10 +9,14 @@
 import Foundation
 
 class APIController {
-    let url = "http://91.121.184.50:31337"
+    var url = ""
     var jsonDataArray : [[String:Any]] = []
     var jsonData: [String:Any] = [:]
     let VALID_CODES = [200, 201, 204]
+    
+    init(url:String = "") {
+        self.url = url
+    }
     
     func getContainerAll () -> [Container] {
         let tmp_url = self.url + "/containers/json?all=1"
@@ -78,7 +82,7 @@ class APIController {
     func resetJsonDataArray() {
         self.jsonDataArray = []
     }
-    
+    /*
     static func getUrl() -> String {
         let ip_server = ProcessInfo.processInfo.environment["IP_SERVER"]
         
@@ -88,14 +92,14 @@ class APIController {
         }
         
         return "http://91.121.184.50:31337"
-    }
+    }*/
     
-    static func startContainer(id: String) -> (status: Bool, response: String){
+    func startContainer(id: String) -> (status: Bool, response: String){
         let semaphore = DispatchSemaphore(value: 0)
         var status:Bool = false
         var responseString = ""
         
-        var request = URLRequest(url: URL(string: "\(getUrl())/containers/\(id)/start")!)
+        var request = URLRequest(url: URL(string: "\(self.url)/containers/\(id)/start")!)
         request.httpMethod = "POST"
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
@@ -121,12 +125,12 @@ class APIController {
         return (status, responseString)
 
     }
-    static func stopContainer(id: String) -> (status: Bool, response: String){
+    func stopContainer(id: String) -> (status: Bool, response: String){
         let semaphore = DispatchSemaphore(value: 0)
         var status:Bool = false
         var responseString = ""
         
-        var request = URLRequest(url: URL(string: "\(getUrl())/containers/\(id)/stop")!)
+        var request = URLRequest(url: URL(string: "\(self.url)/containers/\(id)/stop")!)
         request.httpMethod = "POST"
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
@@ -169,12 +173,12 @@ class APIController {
         
     }
     
-    static func removeContainer(id: String) -> (status: Bool, response: String){
+    func removeContainer(id: String) -> (status: Bool, response: String){
         let semaphore = DispatchSemaphore(value: 0)
         var status:Bool = false
         var responseString = ""
         
-        var request = URLRequest(url: URL(string: "\(getUrl())/containers/\(id)")!)
+        var request = URLRequest(url: URL(string: "\(self.url)/containers/\(id)")!)
         request.httpMethod = "DELETE"
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in

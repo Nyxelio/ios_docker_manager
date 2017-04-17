@@ -45,11 +45,11 @@ class ContainerDetailsViewController: UITableViewController {
     }
     @IBAction func play(_ sender: UIButton) {
         
-        let (status, response) = APIController.startContainer(id: container.id)
+        let api = APIController(url: DataStore.getUrl())
+        
+        let (status, response) = api.startContainer(id: container.id)
         
         if status {
-            
-            let api = APIController()
             
             container = api.getContainer(uuid: container.id)
             refresh()
@@ -64,12 +64,12 @@ class ContainerDetailsViewController: UITableViewController {
         }
     }
     @IBAction func stop(_ sender: UIButton) {
-        
-        let (status, response) = APIController.stopContainer(id: container.id)
+
+        let api = APIController(url: DataStore.getUrl())
+
+        let (status, response) = api.stopContainer(id: container.id)
         
         if status {
-            
-            let api = APIController()
             
             container = api.getContainer(uuid: container.id)
             
@@ -88,12 +88,12 @@ class ContainerDetailsViewController: UITableViewController {
     
     @IBAction func remove(_ sender: UIButton) {
      
-        
-        let (status, response) = APIController.removeContainer(id: container.id)
+        let api = APIController(url: DataStore.getUrl())
+
+        let (status, response) = api.removeContainer(id: container.id)
         
         if status {
             
-            let api = APIController()
             
             DataStore.containers = api.getContainerAll()
             

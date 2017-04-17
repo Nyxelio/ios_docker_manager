@@ -19,7 +19,7 @@ class NewContainerViewController: UIViewController {
         let cmd = txtContainerCmd.text
         
         if name != nil && image != nil && cmd != nil {
-            let res = APIController().createContainer(nameContainer: name!, nameImage: image!, cmd: cmd!)
+            let res = APIController(url: DataStore.getUrl()).createContainer(nameContainer: name!, nameImage: image!, cmd: cmd!)
             print(res)
             
             
@@ -29,7 +29,7 @@ class NewContainerViewController: UIViewController {
             self.present(saveController, animated: true, completion: nil)
             
             
-            let api = APIController()
+            let api = APIController(url: DataStore.getUrl())
             DataStore.containers = api.getContainerAll()
 
         }
