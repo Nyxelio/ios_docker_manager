@@ -15,6 +15,10 @@
 		8B525D0E1E84059500FFDB3A /* ContainerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B525D0D1E84059500FFDB3A /* ContainerClass.swift */; };
 		8B525D101E8405A200FFDB3A /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B525D0F1E8405A200FFDB3A /* Image.swift */; };
 		8B6574CA1E8436D000F6389E /* ControllerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6574C91E8436D000F6389E /* ControllerAPI.swift */; };
+		8B9175531EA4F40200868BEF /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9175521EA4F40200868BEF /* AccountTableViewCell.swift */; };
+		8B9175551EA4F4FD00868BEF /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9175541EA4F4FC00868BEF /* AccountTableViewController.swift */; };
+		8B9175571EA4FDED00868BEF /* AccountCtrlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9175561EA4FDED00868BEF /* AccountCtrlCell.swift */; };
+		8B9175591EA4FFDD00868BEF /* newAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9175581EA4FFDD00868BEF /* newAccountViewController.swift */; };
 		8B99BCA11E851E18004E30BF /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B99BCA01E851E18004E30BF /* DataStore.swift */; };
 		8B99BCA31E856B0C004E30BF /* ImageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B99BCA21E856B0C004E30BF /* ImageTableViewController.swift */; };
 		8B99BCA51E856C90004E30BF /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B99BCA41E856C90004E30BF /* ImageTableViewCell.swift */; };
@@ -53,6 +57,10 @@
 		8B525D0D1E84059500FFDB3A /* ContainerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerClass.swift; sourceTree = "<group>"; };
 		8B525D0F1E8405A200FFDB3A /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		8B6574C91E8436D000F6389E /* ControllerAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerAPI.swift; sourceTree = "<group>"; };
+		8B9175521EA4F40200868BEF /* AccountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
+		8B9175541EA4F4FC00868BEF /* AccountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
+		8B9175561EA4FDED00868BEF /* AccountCtrlCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCtrlCell.swift; sourceTree = "<group>"; };
+		8B9175581EA4FFDD00868BEF /* newAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newAccountViewController.swift; sourceTree = "<group>"; };
 		8B99BCA01E851E18004E30BF /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		8B99BCA21E856B0C004E30BF /* ImageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTableViewController.swift; sourceTree = "<group>"; };
 		8B99BCA41E856C90004E30BF /* ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
@@ -140,6 +148,10 @@
 				8B99BCAA1E8FC92C004E30BF /* ContainerCtrlCell.swift */,
 				8B99BCAC1E911D1D004E30BF /* System.swift */,
 				8B99BCAE1E915C51004E30BF /* DashboardTableViewController.swift */,
+				8B9175521EA4F40200868BEF /* AccountTableViewCell.swift */,
+				8B9175541EA4F4FC00868BEF /* AccountTableViewController.swift */,
+				8B9175561EA4FDED00868BEF /* AccountCtrlCell.swift */,
+				8B9175581EA4FFDD00868BEF /* newAccountViewController.swift */,
 			);
 			path = "docker Manager";
 			sourceTree = "<group>";
@@ -258,12 +270,15 @@
 			files = (
 				8B99BCBD1EA4DB0A004E30BF /* Account+CoreDataProperties.swift in Sources */,
 				8B99BCAF1E915C51004E30BF /* DashboardTableViewController.swift in Sources */,
+				8B9175571EA4FDED00868BEF /* AccountCtrlCell.swift in Sources */,
 				8B6574CA1E8436D000F6389E /* ControllerAPI.swift in Sources */,
 				8B525D081E82E83800FFDB3A /* TourPageViewController.swift in Sources */,
 				8B99BCA31E856B0C004E30BF /* ImageTableViewController.swift in Sources */,
+				8B9175531EA4F40200868BEF /* AccountTableViewCell.swift in Sources */,
 				8B99BCAD1E911D1E004E30BF /* System.swift in Sources */,
 				8B525CFE1E7C16EB00FFDB3A /* ContainerTableViewController.swift in Sources */,
 				8BFA4A8A1E7AED6F00A3B311 /* DispatcherController.swift in Sources */,
+				8B9175591EA4FFDD00868BEF /* newAccountViewController.swift in Sources */,
 				8B99BCAB1E8FC92C004E30BF /* ContainerCtrlCell.swift in Sources */,
 				8B525D0C1E83D66B00FFDB3A /* StartViewController.swift in Sources */,
 				8B99BCA91E8D5161004E30BF /* NewContainerViewController.swift in Sources */,
@@ -272,6 +287,7 @@
 				8B525D101E8405A200FFDB3A /* Image.swift in Sources */,
 				8B99BCA71E856EB8004E30BF /* ImageDetailsViewController.swift in Sources */,
 				8B525D0E1E84059500FFDB3A /* ContainerClass.swift in Sources */,
+				8B9175551EA4F4FD00868BEF /* AccountTableViewController.swift in Sources */,
 				8B525D001E7C19D000FFDB3A /* ContainerTableViewCell.swift in Sources */,
 				8BFA4A6F1E7AC55900A3B311 /* docker_Manager.xcdatamodeld in Sources */,
 				8B99BCA11E851E18004E30BF /* DataStore.swift in Sources */,
