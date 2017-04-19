@@ -24,6 +24,12 @@ class AccountTableViewController: UITableViewController {
         
         loadData()
         
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(AccountTableViewController.loadData), for: UIControlEvents.valueChanged)
+        self.refreshControl = refreshControl
+
+        
 
     }
     
@@ -31,6 +37,8 @@ class AccountTableViewController: UITableViewController {
         //fetch
         do {
             accounts = try context.fetch(Account.fetchRequest())
+            print("reload")
+            print(accounts)
             tabBarItem.badgeValue = String(accounts.count)
             tableView.reloadData()
             
@@ -77,7 +85,7 @@ class AccountTableViewController: UITableViewController {
              return cell
         }
         else {
-            print("section1")
+ 
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "accountCell") as! AccountTableViewCell
             
             let account = accounts[indexPath.row]

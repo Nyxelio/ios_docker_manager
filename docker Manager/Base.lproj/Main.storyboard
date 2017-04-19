@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1cu-nr-YLH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ILw-PN-gE8">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -145,9 +145,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="ABj-tZ-TtG" kind="show" id="6qi-Gc-sag"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="x2r-gI-Kbd">
                                         <rect key="frame" x="0.0" y="288" width="375" height="44"/>
@@ -207,7 +204,7 @@
         <!--View Controller-->
         <scene sceneID="OvM-JR-gwA">
             <objects>
-                <viewController storyboardIdentifier="Tour2View" modalTransitionStyle="flipHorizontal" useStoryboardIdentifierAsRestorationIdentifier="YES" id="L7I-R2-xAs" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Tour3View" modalTransitionStyle="flipHorizontal" useStoryboardIdentifierAsRestorationIdentifier="YES" id="L7I-R2-xAs" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lUW-yM-NhJ"/>
                         <viewControllerLayoutGuide type="bottom" id="Gv2-bq-NIS"/>
@@ -301,7 +298,7 @@
                         <color key="backgroundColor" red="0.95287348500000002" green="0.75202566969999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="containerCell" id="mg7-jT-BMw" customClass="ContainerTableViewCell" customModule="docker_Manager" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="119.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mg7-jT-BMw" id="qtf-v8-QVh">
                                     <frame key="frameInset" width="375" height="44"/>
@@ -336,7 +333,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="containerCtrlCell" id="RPh-tO-U7N" customClass="ContainerCtrlCell" customModule="docker_Manager" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="163.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="164" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RPh-tO-U7N" id="IHJ-Gv-dWA">
                                     <frame key="frameInset" width="375" height="44"/>
@@ -419,14 +416,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esB-iV-3cO">
-                                <frame key="frameInset" minX="135" minY="410" width="106" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Enregistrer"/>
-                                <connections>
-                                    <action selector="saveNewContainer:" destination="plA-I5-Vss" eventType="touchUpInside" id="7G0-j1-fPM"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex: ls" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JPr-BV-hZQ">
                                 <frame key="frameInset" minX="193" minY="338" width="166" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -434,10 +423,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esB-iV-3cO">
+                                <frame key="frameInset" minX="140" minY="551" width="94" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Enregistrer">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveNewContainer:" destination="plA-I5-Vss" eventType="touchUpInside" id="7G0-j1-fPM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="saveBtn" destination="esB-iV-3cO" id="dql-al-7hl"/>
                         <outlet property="txtContainerCmd" destination="JPr-BV-hZQ" id="hdB-3I-w7G"/>
                         <outlet property="txtContainerImage" destination="lUd-Mh-fwo" id="WBO-O2-pbm"/>
                         <outlet property="txtContainerName" destination="lse-gp-Q7x" id="aBa-g7-9dH"/>
@@ -467,7 +467,7 @@
         <!--View Controller-->
         <scene sceneID="Ke5-Xr-hA8">
             <objects>
-                <viewController storyboardIdentifier="Tour3View" modalTransitionStyle="flipHorizontal" useStoryboardIdentifierAsRestorationIdentifier="YES" id="D0c-An-qsc" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Tour4View" modalTransitionStyle="flipHorizontal" useStoryboardIdentifierAsRestorationIdentifier="YES" id="D0c-An-qsc" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="i59-Se-8Fd"/>
                         <viewControllerLayoutGuide type="bottom" id="Lr0-jd-yge"/>
@@ -816,7 +816,7 @@
         <!--View Controller-->
         <scene sceneID="dD6-AX-I4c">
             <objects>
-                <viewController storyboardIdentifier="Tour4View" modalTransitionStyle="flipHorizontal" useStoryboardIdentifierAsRestorationIdentifier="YES" id="E0h-xA-Vhh" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Tour5View" modalTransitionStyle="flipHorizontal" useStoryboardIdentifierAsRestorationIdentifier="YES" id="E0h-xA-Vhh" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KLW-bt-FfD"/>
                         <viewControllerLayoutGuide type="bottom" id="hf1-43-oqQ"/>
@@ -847,7 +847,7 @@
         <!--Start View Controller-->
         <scene sceneID="HaO-mZ-iuS">
             <objects>
-                <viewController storyboardIdentifier="Tour5View" modalTransitionStyle="flipHorizontal" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1cu-nr-YLH" customClass="StartViewController" customModule="docker_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Tour6View" modalTransitionStyle="flipHorizontal" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1cu-nr-YLH" customClass="StartViewController" customModule="docker_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IHD-bR-XuH"/>
                         <viewControllerLayoutGuide type="bottom" id="E8d-jh-wFe"/>
@@ -859,7 +859,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BYd-db-Lyb">
                                 <frame key="frameInset" minX="98" minY="317" width="178" height="78"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Accéder à la démo">
+                                <state key="normal" title="Je suis prêt !">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -890,31 +890,55 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YfO-Kt-0qb">
-                                <frame key="frameInset" minX="139" minY="116" width="97" height="30"/>
+                                <frame key="frameInset" minX="143" minY="325" width="183" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Url" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWb-Fg-JqP">
-                                <frame key="frameInset" minX="44" minY="119" width="23" height="21"/>
+                                <frame key="frameInset" minX="48" minY="328" width="23" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wqo-ap-3bv">
+                                <frame key="frameInset" minX="143" minY="210" width="183" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKu-w0-m5w">
+                                <frame key="frameInset" minX="48" minY="213" width="61" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q8x-wk-T0o">
-                                <frame key="frameInset" minX="149" minY="247" width="76" height="30"/>
+                                <frame key="frameInset" minX="140" minY="530" width="94" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Enregistrer"/>
+                                <state key="normal" title="Enregistrer">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addNewAccount:" destination="Y1c-DE-N25" eventType="touchUpInside" id="Gzu-qG-1R1"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="btnSave" destination="q8x-wk-T0o" id="62C-tS-mBx"/>
+                        <outlet property="edtNewName" destination="Wqo-ap-3bv" id="gv7-A1-huV"/>
+                        <outlet property="edtNewUrl" destination="YfO-Kt-0qb" id="OsG-al-ohg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MKK-vP-VOc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2372" y="1666"/>
+            <point key="canvasLocation" x="2372" y="1665.5172413793105"/>
         </scene>
         <!--Comptes-->
         <scene sceneID="nLw-vH-JFR">
@@ -923,13 +947,13 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="KzG-gZ-OzJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.95287348500000002" green="0.75202566969999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="accountCell" id="JFn-8b-Kg9" customClass="AccountTableViewCell" customModule="docker_Manager" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="120" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JFn-8b-Kg9" id="qxF-9O-suy">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;name&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhZ-af-ZlU">
@@ -957,7 +981,7 @@
                                 <rect key="frame" x="0.0" y="164" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SQu-ko-FhH" id="50e-pY-WLJ">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BwG-Rb-kce">
@@ -967,7 +991,7 @@
                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
-                                                <segue destination="Y1c-DE-N25" kind="showDetail" id="ICy-wr-uqT"/>
+                                                <segue destination="Y1c-DE-N25" kind="show" id="7ix-ha-CcI"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -1029,7 +1053,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="VGy-kE-0XW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.95287348500000002" green="0.75202566969999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="imageCell" id="Ixl-MT-kQ3" customClass="ImageTableViewCell" customModule="docker_Manager" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
@@ -1197,8 +1221,40 @@
             </objects>
             <point key="canvasLocation" x="3156" y="1665.5172413793105"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="1Cl-bv-AGw">
+            <objects>
+                <viewController storyboardIdentifier="Tour2View" modalTransitionStyle="flipHorizontal" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sv5-o9-CEj" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BlP-lb-bjU"/>
+                        <viewControllerLayoutGuide type="bottom" id="jua-dA-BUG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OSu-UA-xG6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Managez vos comptes" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTP-5j-UWC">
+                                <frame key="frameInset" minX="46" minY="480" width="283" height="94"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name=".SFNSDisplay-Regular" family=".SF NS Display" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="accounts" translatesAutoresizingMaskIntoConstraints="NO" id="IK1-fO-8n7">
+                                <frame key="frameInset" minX="72" minY="157" width="230" height="246"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.60784313729999995" green="0.34901960780000002" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0nu-FU-M8W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="518" y="158"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="accounts" width="128" height="128"/>
         <image name="icon-add" width="16" height="16"/>
         <image name="icon-logs" width="16" height="16"/>
         <image name="icon-play" width="16" height="16"/>
@@ -1208,7 +1264,4 @@
         <image name="server" width="128" height="128"/>
         <image name="volume" width="128" height="128"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="1ad-GP-Od6"/>
-    </inferredMetricsTieBreakers>
 </document>

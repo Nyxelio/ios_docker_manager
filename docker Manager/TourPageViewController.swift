@@ -11,7 +11,7 @@ import UIKit
 class TourPageViewController: UIPageViewController,UIPageViewControllerDataSource, UIPageViewControllerDelegate  {
     
     var index = 0
-    var identifiers: NSArray = ["Tour1View", "Tour2View", "Tour3View", "Tour4View", "Tour5View"]
+    var identifiers: NSArray = ["Tour1View", "Tour2View", "Tour3View", "Tour4View", "Tour5View", "Tour6View"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

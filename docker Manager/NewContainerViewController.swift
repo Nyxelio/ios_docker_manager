@@ -9,6 +9,7 @@
 import UIKit
 
 class NewContainerViewController: UIViewController {
+    @IBOutlet weak var saveBtn: UIButton!
 
     @IBOutlet weak var txtContainerName: UITextField!
     @IBOutlet weak var txtContainerImage: UITextField!
@@ -20,7 +21,7 @@ class NewContainerViewController: UIViewController {
         
         if name != nil && image != nil && cmd != nil {
             let res = APIController(url: DataStore.getUrl()).createContainer(nameContainer: name!, nameImage: image!, cmd: cmd!)
-            print(res)
+
             
             
             let saveController = UIAlertController(title: "Enregistrement", message: res, preferredStyle: UIAlertControllerStyle.alert)
@@ -39,6 +40,7 @@ class NewContainerViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+         saveBtn.layer.backgroundColor = UIColor(red: 0x9B/255, green: 0x59/255, blue: 0xB6/255, alpha: 1).cgColor
     }
 
     override func didReceiveMemoryWarning() {

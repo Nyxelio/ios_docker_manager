@@ -9,11 +9,41 @@
 import UIKit
 
 class newAccountViewController: UIViewController {
+    @IBOutlet weak var edtNewUrl: UITextField!
 
+    @IBOutlet weak var edtNewName: UITextField!
+    
+    @IBOutlet weak var btnSave: UIButton!
+    
+    @IBAction func addNewAccount(_ sender: AnyObject) {
+        
+        let name = edtNewName.text
+        let url = edtNewUrl.text
+        
+        if name != nil && url != nil {
+            
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            
+            let account = Account(context: context)
+            account.name = name!
+            account.url = url!
+            
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            
+            let saveController = UIAlertController(title: "Enregistrement", message: "Nouveau compte créé !", preferredStyle: UIAlertControllerStyle.alert)
+            saveController.addAction(UIAlertAction(title: "Fermer", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(saveController, animated: true, completion: nil)
+        }
+        
+
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        btnSave.layer.backgroundColor = UIColor(red: 0x9B/255, green: 0x59/255, blue: 0xB6/255, alpha: 1).cgColor
+
     }
 
     override func didReceiveMemoryWarning() {
